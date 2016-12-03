@@ -52,8 +52,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxArtilleryName = new System.Windows.Forms.TextBox();
             this.textBoxArtilleryModel = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDownaltiler = new System.Windows.Forms.NumericUpDown();
+            this.textBoxAltilerTitle = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonSaveDB = new System.Windows.Forms.Button();
             this.buttonSaveExcel = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.groupBoxArmy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(6, 65);
+            this.label1.Location = new System.Drawing.Point(8, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 0;
@@ -359,8 +359,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.textBoxAltilerTitle);
+            this.groupBox1.Controls.Add(this.numericUpDownaltiler);
             this.groupBox1.Controls.Add(this.textBoxArtilleryModel);
             this.groupBox1.Controls.Add(this.textBoxArtilleryName);
             this.groupBox1.Controls.Add(this.label12);
@@ -431,36 +431,36 @@
             this.textBoxArtilleryModel.Size = new System.Drawing.Size(177, 26);
             this.textBoxArtilleryModel.TabIndex = 5;
             // 
-            // numericUpDown1
+            // numericUpDownaltiler
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1.Location = new System.Drawing.Point(198, 159);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownaltiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDownaltiler.Location = new System.Drawing.Point(198, 159);
+            this.numericUpDownaltiler.Maximum = new decimal(new int[] {
             2016,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDownaltiler.Minimum = new decimal(new int[] {
             1950,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(90, 26);
-            this.numericUpDown1.TabIndex = 16;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDownaltiler.Name = "numericUpDownaltiler";
+            this.numericUpDownaltiler.Size = new System.Drawing.Size(90, 26);
+            this.numericUpDownaltiler.TabIndex = 16;
+            this.numericUpDownaltiler.Value = new decimal(new int[] {
             1950,
             0,
             0,
             0});
             // 
-            // textBox1
+            // textBoxAltilerTitle
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(111, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 26);
-            this.textBox1.TabIndex = 17;
+            this.textBoxAltilerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxAltilerTitle.Location = new System.Drawing.Point(111, 122);
+            this.textBoxAltilerTitle.Name = "textBoxAltilerTitle";
+            this.textBoxAltilerTitle.Size = new System.Drawing.Size(177, 26);
+            this.textBoxAltilerTitle.TabIndex = 17;
             // 
             // groupBox2
             // 
@@ -497,6 +497,7 @@
             this.buttonSaveExcel.TabIndex = 1;
             this.buttonSaveExcel.Text = "Գրանցում Excel-ում";
             this.buttonSaveExcel.UseVisualStyleBackColor = true;
+            this.buttonSaveExcel.Click += new System.EventHandler(this.buttonSaveExcel_Click);
             // 
             // buttonSelectDB
             // 
@@ -582,7 +583,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(6, 29);
+            this.label14.Location = new System.Drawing.Point(8, 29);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(110, 20);
             this.label14.TabIndex = 18;
@@ -603,7 +604,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -633,8 +634,8 @@
         private System.Windows.Forms.ComboBox comboBoxBowl;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBoxAltilerTitle;
+        private System.Windows.Forms.NumericUpDown numericUpDownaltiler;
         private System.Windows.Forms.TextBox textBoxArtilleryModel;
         private System.Windows.Forms.TextBox textBoxArtilleryName;
         private System.Windows.Forms.Label label12;
