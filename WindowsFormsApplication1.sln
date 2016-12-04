@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Military Program. Artillery Brigades", "Military Program. Artillery Brigades", "{FF6EE928-1FCA-43BB-BB0B-289D655F16C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GeneralForm", "GeneralForm", "{F66310D8-D070-4749-B12A-677AC62A03F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AFFA33A4-2076-477E-AB6C-AC469445C87B} = {FF6EE928-1FCA-43BB-BB0B-289D655F16C7}
+		{AFFA33A4-2076-477E-AB6C-AC469445C87B} = {F66310D8-D070-4749-B12A-677AC62A03F9}
+		{F66310D8-D070-4749-B12A-677AC62A03F9} = {FF6EE928-1FCA-43BB-BB0B-289D655F16C7}
 	EndGlobalSection
 EndGlobal
