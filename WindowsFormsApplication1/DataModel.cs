@@ -174,5 +174,26 @@ namespace WindowsFormsApplication1
             get { return altilerage; }
             set { altilerage = value; }
         }
+        public List<string> DatamodelValue()
+        {
+            List<string> list = new List<string>();
+            list.Add("Solder PassportID ");
+            list.Add("Solder Name");
+            list.Add("Solde Surername");
+            list.Add("Solder SolderMiddlename ");
+            list.Add("Solder Age ");
+            list.Add("Solder Title ");
+            list.Add("Solder Classical ");
+            list.Add("Solder Company");
+            list.Add("Solder Battalion ");
+            list.Add("Solder Bowl");
+            list.Add("Artillery Name");
+            list.Add("Artillery Model ");
+            list.Add("Altiler Title");
+            list.Add("Altiler Age");
+
+            return list;
+
+        }
     }
 }

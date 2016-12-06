@@ -10,9 +10,10 @@ namespace WindowsFormsApplication1
 {
     class WriteDataToExcel
     {
-        FileStream file;
         DataModel ob;
-        DateTime datatime;
+        Excel.Worksheet xlWorkSheet;
+        Excel.Application excelData;
+        object misValue = System.Reflection.Missing.Value;
 
         public WriteDataToExcel()
         {
@@ -30,22 +31,35 @@ namespace WindowsFormsApplication1
         }
         public void CreatdataExcel(string path, DataModel datamodel)
         {
-            Excel.Application oXL;
-            Excel._Workbook oWB;
-            Excel._Worksheet oSheet;
-            file = new FileStream(path + "\\" + "file" , FileMode.OpenOrCreate, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(file);
+            
+            excelData = new Excel.Application();
+            datamodel = new DataModel();
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(path).Append("\\").Append(datamodel.Artilleryname).Append("h").Append(datamodel.SoldeSurername).Append(".csv");
+
+            List<string> list = datamodel.DatamodelValue();
+
+            Excel.Workbook xlWorkBook = excelData.Workbooks.Add(misValue);
+
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
 
-            oXL = new Excel.Application();
-            oXL.Visible = true;
-            oWB = (Excel.Workbook)(oXL.Workbooks.Add(""));
-            oSheet = (Excel.Worksheet)oWB.ActiveSheet;
-            oSheet.Cells[1, 1] = "First Name";
-            oSheet.Cells[1, 2] = "Last Name";
-            oSheet.Cells[1, 3] = "Full Name";
-            oSheet.Cells[1, 4] = "Salary";
-            oWB.SaveAs(file);
+            for (int i = 0; i < list.Count; i++)
+            {
+                xlWorkSheet.Cells[1, i + 1] = list[i];
+                for (int j = 0; j < list.Count;)
+                {
+                    xlWorkSheet.Cells[2, i + 1] = datamodel.Solderage;
+
+                    break;
+
+                }
+
+            }
+
+            xlWorkBook.SaveAs(stringBuilder.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            excelData.Quit();
         }
     }
 }
