@@ -174,26 +174,53 @@ namespace WindowsFormsApplication1
             get { return altilerage; }
             set { altilerage = value; }
         }
-        public List<string> DatamodelValue()
+       public List<string> DatamodelValue()
         {
             List<string> list = new List<string>();
-            list.Add("Solder PassportID ");
-            list.Add("Solder Name");
-            list.Add("Solde Surername");
-            list.Add("Solder SolderMiddlename ");
-            list.Add("Solder Age ");
-            list.Add("Solder Title ");
-            list.Add("Solder Classical ");
-            list.Add("Solder Company");
-            list.Add("Solder Battalion ");
-            list.Add("Solder Bowl");
-            list.Add("Artillery Name");
-            list.Add("Artillery Model ");
-            list.Add("Altiler Title");
-            list.Add("Altiler Age");
+            list.Add("Անձնագրի ID");
+            list.Add("Անուն");
+            list.Add("Ազգանուն");
+            list.Add("Հայրանուն");
+            list.Add("Տարիք");
+            list.Add("Կոչում");
+            list.Add("Դասակ");
+            list.Add("Վաշտ");
+            list.Add("Գումարտակ");
+            list.Add("Գունդ");
+            list.Add("Հրետանու Անուն");
+            list.Add("Հրետանու Մոդել");
+            list.Add("Հրետանու Տեսակ");
+            list.Add("Հրետանու Արտադրման տարեթիվ");
+
 
             return list;
 
         }
+        public int DatamodelValueAge(int index)
+        {
+            if (index == 4)
+                return Solderage;
+            else
+                return Altilerage;
+        }
+        public string DatamodelValueStringParametrs(int index)
+        {
+            string[] da = new string[13];
+            da[0] = solderPassportID;
+            da[1] = SolderName;
+            da[2] = SoldeSurername;
+            da[3] = Solderfname;
+            da[5] = Soldertitle;
+            da[6] = Solderclassical;
+            da[7] = Soldercompany;
+            da[8] = Solderbattalion;
+            da[9] = Solderbowl;
+            da[10] = Artilleryname;
+            da[11] = Artillerymodel;
+            da[12] = Altilertitle;
+
+            return da[index];
+        }
+    
     }
 }

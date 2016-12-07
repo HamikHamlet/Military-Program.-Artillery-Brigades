@@ -10,55 +10,51 @@ namespace WindowsFormsApplication1
 {
     class WriteDataToExcel
     {
-        DataModel ob;
-        Excel.Worksheet xlWorkSheet;
+
+        Excel.Worksheet excelSheet;
         Excel.Application excelData;
         object misValue = System.Reflection.Missing.Value;
 
         public WriteDataToExcel()
         {
 
+        }
+        public WriteDataToExcel(DataModel datamodel)
+        {
             string pathDirectory = GetDefaultDirectory();
-            CreatdataExcel(pathDirectory, ob);
+            CreatdataExcel(pathDirectory, datamodel);
         }
         private string GetDefaultDirectory()
         {
             string directoryName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
-
             if (!Directory.Exists(directoryName))
                 Directory.CreateDirectory(directoryName);
             return directoryName;
         }
         public void CreatdataExcel(string path, DataModel datamodel)
         {
-            
             excelData = new Excel.Application();
-            datamodel = new DataModel();
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(path).Append("\\").Append(datamodel.Artilleryname).Append("h").Append(datamodel.SoldeSurername).Append(".csv");
+            stringBuilder.Append(path).Append("\\").Append(datamodel.SolderName).Append("-").Append(datamodel.SoldeSurername).Append(".csv");
+            List<string> listofDataName = datamodel.DatamodelValue();
 
-            List<string> list = datamodel.DatamodelValue();
-
-            Excel.Workbook xlWorkBook = excelData.Workbooks.Add(misValue);
-
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-
-            for (int i = 0; i < list.Count; i++)
+            Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
+            excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
+            for (int i = 0; i < listofDataName.Count; i++)
             {
-                xlWorkSheet.Cells[1, i + 1] = list[i];
-                for (int j = 0; j < list.Count;)
+                excelSheet.Cells[1, i + 1] = listofDataName[i];
+                for (int j = 0; j < listofDataName.Count - 1; )
                 {
-                    xlWorkSheet.Cells[2, i + 1] = datamodel.Solderage;
-
+                    if (i == 4 || i == 13)
+                        excelSheet.Cells[2, i + 1] = datamodel.DatamodelValueAge(i);
+                    else
+                        excelSheet.Cells[2, i + 1] = datamodel.DatamodelValueStringParametrs(i);
                     break;
-
                 }
 
             }
-
-            xlWorkBook.SaveAs(stringBuilder.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
+            excelWorkBook.SaveAs(stringBuilder.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
+            excelWorkBook.Close(true, misValue, misValue);
             excelData.Quit();
         }
     }

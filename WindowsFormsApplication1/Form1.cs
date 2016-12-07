@@ -20,8 +20,9 @@ namespace WindowsFormsApplication1
 
         private void buttonSaveExcel_Click(object sender, EventArgs e)
         {
-            WriteDataToExcel writedatatoexcel=new WriteDataToExcel();
-            
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
+            DataModel datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
+            WriteDataToExcel writedatatoexcel = new WriteDataToExcel(datamodel);
         }
     }
 }
