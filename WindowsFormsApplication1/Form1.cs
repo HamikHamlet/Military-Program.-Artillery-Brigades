@@ -24,5 +24,10 @@ namespace WindowsFormsApplication1
             DataModel datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
             WriteDataToExcel writedatatoexcel = new WriteDataToExcel(datamodel);
         }
+
+        private void buttonSaveDB_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
