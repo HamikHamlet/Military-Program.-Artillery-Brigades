@@ -177,20 +177,20 @@ namespace WindowsFormsApplication1
        public List<string> DatamodelValue()
         {
             List<string> list = new List<string>();
-            list.Add("Անձնագրի ID");
-            list.Add("Անուն");
-            list.Add("Ազգանուն");
-            list.Add("Հայրանուն");
-            list.Add("Տարիք");
-            list.Add("Կոչում");
-            list.Add("Դասակ");
-            list.Add("Վաշտ");
-            list.Add("Գումարտակ");
-            list.Add("Գունդ");
-            list.Add("Հրետանու Անուն");
-            list.Add("Հրետանու Մոդել");
-            list.Add("Հրետանու Տեսակ");
-            list.Add("Հրետանու Արտադրման տարեթիվ");
+            list.Add("Անձնագրի ID  ");
+            list.Add("Անուն  ");
+            list.Add("Ազգանուն  ");
+            list.Add("Հայրանուն  ");
+            list.Add("Տարիք  ");
+            list.Add("Կոչում  ");
+            list.Add("Դասակ  ");
+            list.Add("Վաշտ  ");
+            list.Add("Գումարտակ  ");
+            list.Add("Գունդ  ");
+            list.Add("Հրետանու Անուն  ");
+            list.Add("Հրետանու Մոդել  ");
+            list.Add("Հրետանու Տեսակ  ");
+            list.Add("Հրետանու Արտադրման տարեթիվ  ");
 
 
             return list;
