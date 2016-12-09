@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Drawing;
+using System.Windows.Forms;
+
 
 namespace WindowsFormsApplication1
 {
@@ -25,6 +27,7 @@ namespace WindowsFormsApplication1
         {
             string pathDirectory = GetDefaultDirectory();
             CreatdataExcel(pathDirectory, datamodel);
+            MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
         }
         private string GetDefaultDirectory()
         {
@@ -52,9 +55,15 @@ namespace WindowsFormsApplication1
                 for (int j = 0; j < listofDataName.Count - 1;)
                 {
                     if (i == 4 || i == 13)
+                    {
+                        ExcelSolderDataDesign(excelCallsCount + 1, i + 1);
                         excelSheet.Cells[excelCallsCount + 1, i + 1] = datamodel.DatamodelValueAge(i);
+                    }
                     else
+                    {
+                        ExcelSolderDataDesign(excelCallsCount + 1, i + 1);
                         excelSheet.Cells[excelCallsCount + 1, i + 1] = datamodel.DatamodelValueStringParametrs(i);
+                    }
                     break;
 
                 }
@@ -90,9 +99,20 @@ namespace WindowsFormsApplication1
             
 
             excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.White);
-            excelSheet.Cells[index1, index2].Font.Size = 14;
+            excelSheet.Cells[index1, index2].Font.Size = 13;
             excelSheet.Cells[index1,index2].Interior.Color =ColorTranslator.ToOle(Color.DarkGreen);
+            excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
             
+        }
+        private void ExcelSolderDataDesign(int index1, int index2)
+        {
+
+
+            excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.Black);
+            excelSheet.Cells[index1, index2].Font.Size = 11;
+            excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.LightGray);
+            excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
+
         }
     }
 }
