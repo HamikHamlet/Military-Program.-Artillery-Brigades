@@ -84,19 +84,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pnlg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\250px-Coat_of_arms_of_Armenia.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\armenia.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\691700.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\image.jpg" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
