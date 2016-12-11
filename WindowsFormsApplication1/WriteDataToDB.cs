@@ -10,8 +10,9 @@ namespace WindowsFormsApplication1
 {
     class WriteDataToDB
     {
+        List<string> encodingValue;
         DataModel da;
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades3\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades4\WindowsFormsApplication1\bin\Debug\armydata (2).mdf;Integrated Security=True";
 
         public WriteDataToDB()
         {
@@ -25,11 +26,23 @@ namespace WindowsFormsApplication1
         }
         public void InsertData(DataModel datamodel)
         {
-
+           
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 using (SqlCommand sqlCommand = new SqlCommand())
                 {
+                    datamodel.solderPassportID = encodingValue[0];
+                    datamodel.SolderName = encodingValue[1];
+                    datamodel.SoldeSurername = encodingValue[2];
+                    datamodel.Solderfname = encodingValue[3];
+                    datamodel.Soldertitle = encodingValue[4];
+                    datamodel.Solderclassical = encodingValue[5];
+                    datamodel.Soldercompany = encodingValue[6];
+                    datamodel.Solderbattalion = encodingValue[7];
+                    datamodel.Solderbowl = encodingValue[8];
+                    datamodel.Artilleryname = encodingValue[9];
+                    datamodel.Artillerymodel = encodingValue[10];
+                    datamodel.Altilertitle = encodingValue[11];
                     sqlCommand.Connection = sqlConnection;
                     sqlConnection.Open();
                     sqlCommand.CommandText = "INSERT INTO SolderTable(PassportID,Soldername,Soldersurname,Soldermiddlename,Solderage) VALUES ('" + datamodel.solderPassportID + "',N'" + datamodel.SolderName + "',N'" + datamodel.SoldeSurername + "',N'" + datamodel.Solderfname + "','" + datamodel.Solderage + "')";
@@ -45,11 +58,12 @@ namespace WindowsFormsApplication1
 
         }
 
-        private DataModel CodingData(DataModel datamodelcoding)
+        private void  CodingData(DataModel datamodelcoding)
         {
-            StringBuilder st = new StringBuilder();
+            encodingValue = new List<string>();
             for (int i = 0; i < 13; i++)
             {
+            StringBuilder st = new StringBuilder();
                 if (i != 4)
                 {
 
@@ -58,14 +72,18 @@ namespace WindowsFormsApplication1
                     {
                         
                         char c = s[j];
-                        int codechar = c + 1;
+                        int codechar = c + 10;
                         st.Append((char)codechar);
 
                     }
-            MessageBox.Show(st.ToString());
+                     
+                     encodingValue.Add(st.ToString());
+                    
                 }
             }
-            return datamodelcoding;
+           
+           
         }
+       
     }
 }
