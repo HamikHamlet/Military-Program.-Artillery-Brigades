@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades4\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         public Form1()
         {
             InitializeComponent();
@@ -37,7 +39,23 @@ namespace WindowsFormsApplication1
 
         private void buttonSaveDB_Click(object sender, EventArgs e)
         {
-
+            InsertData();
+        }
+        public void InsertData()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = sqlConnection;
+                    sqlConnection.Open();
+                    sqlCommand.CommandText = @"INSERT INTO SolderTable(PassportID,Soldername,Soldersurname,Soldermiddlename,Solderage) VALUES ('" + textBoxPassportID.Text + "','" + textboxFirstName.Text + "','" + textBoxLastName.Text + "','" + textBoxFName.Text + "','" + numericUpDownAge.Value + "')";
+                    sqlCommand.CommandText = "INSERT INTO solderTitle(passportID,solderTitle,solderClassical,solderCompany,solderBattalion,solderBowl) VALUES ('" + textBoxPassportID.Text + "','" + comboBoxTitle.SelectedText + "','" + comboBoxClassical.SelectedText + "','" + comboBoxCompany.SelectedText + "','" + comboBoxBattalion.SelectedText + "','" + comboBoxBowl.SelectedText + "')";
+                    sqlCommand.CommandText = "INSERT INTO altilleryTable(passportID,Altilleryname,Altillerymodel,Altillerytitle,Altilleryage) VALUES ('" + textBoxPassportID.Text + "','" + textBoxArtilleryName.Text + "','" + textBoxArtilleryModel.Text + "','" + textBoxAltilerTitle.Text + "','" + numericUpDownaltiler.Value + "')";
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            MessageBox.Show("Բազան հաջողությամբ լրացվեց");
         }
         private int ChechTextBoxText()
         {
