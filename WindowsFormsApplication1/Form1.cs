@@ -20,10 +20,14 @@ namespace WindowsFormsApplication1
             Selected();
            
         }
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\LabUser33\Documents\armydata.mdf;Integrated Security=True;Connect Timeout=30";
         DataModel datamodel;
+        WriteDataToExcel writedatatoexcel;
+        WriteDataToDB writeDataToDB;
+        SelectDataToDB selectdataToDB;
         private async void buttonSaveExcel_Click(object sender, EventArgs e)
         {
-            WriteDataToExcel writedatatoexcel;
+           
             int chechTextbox=ChechTextBoxText();
             if (chechTextbox != -1)
             {
@@ -39,12 +43,12 @@ namespace WindowsFormsApplication1
 
         private async void buttonSaveDB_Click(object sender, EventArgs e)
         {
-            WriteDataToDB writeDataToDB;
+           
             int chechTextbox=ChechTextBoxText();
             if (chechTextbox != -1)
             {
                 datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
-                await Task.Run(() => writeDataToDB = new WriteDataToDB(datamodel));
+                await Task.Run(() => writeDataToDB = new WriteDataToDB(datamodel,connectionString));
             }
             else
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
@@ -64,6 +68,12 @@ namespace WindowsFormsApplication1
             comboBoxClassical.SelectedIndex = 0;
             comboBoxCompany.SelectedIndex = 0;
             comboBoxTitle.SelectedIndex = 0;
+        }
+
+        private async void buttonSelectDB_Click(object sender, EventArgs e)
+        {
+            datamodel=new DataModel(textBoxPassportID.Text);
+            await Task.Run(() => selectdataToDB = new SelectDataToDB(datamodel, connectionString));
         }
 
     }

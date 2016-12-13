@@ -45,6 +45,10 @@ namespace WindowsFormsApplication1
             Altilertitle = altilertitle;
             Altilerage = altilerage;
         }
+        public DataModel(string solderpassportID)
+        {
+            solderPassportID = solderpassportID;
+        }
         public DataModel()
         {
 

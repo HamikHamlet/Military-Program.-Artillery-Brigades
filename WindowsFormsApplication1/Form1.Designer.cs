@@ -50,8 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxAltilerTitle = new System.Windows.Forms.TextBox();
             this.numericUpDownaltiler = new System.Windows.Forms.NumericUpDown();
             this.textBoxArtilleryModel = new System.Windows.Forms.TextBox();
@@ -65,13 +63,15 @@
             this.buttonSelectDB = new System.Windows.Forms.Button();
             this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.buttonSaveDB = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxArmy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +82,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(8, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Անուն";
             // 
@@ -132,7 +132,7 @@
             this.label14.ForeColor = System.Drawing.Color.DarkRed;
             this.label14.Location = new System.Drawing.Point(8, 29);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(125, 20);
+            this.label14.Size = new System.Drawing.Size(99, 20);
             this.label14.TabIndex = 18;
             this.label14.Text = "Անձնագրի ID";
             // 
@@ -189,7 +189,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkRed;
             this.label13.Location = new System.Drawing.Point(6, 393);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.Size = new System.Drawing.Size(46, 20);
             this.label13.TabIndex = 16;
             this.label13.Text = "Գունդ";
             // 
@@ -411,7 +411,7 @@
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
             this.label8.Location = new System.Drawing.Point(6, 354);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 20);
+            this.label8.Size = new System.Drawing.Size(85, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Գումարտակ";
             // 
@@ -423,7 +423,7 @@
             this.label7.ForeColor = System.Drawing.Color.DarkRed;
             this.label7.Location = new System.Drawing.Point(6, 317);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 20);
+            this.label7.Size = new System.Drawing.Size(47, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Վաշտ";
             // 
@@ -435,7 +435,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkRed;
             this.label6.Location = new System.Drawing.Point(6, 275);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.Size = new System.Drawing.Size(54, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Դասակ";
             // 
@@ -447,7 +447,7 @@
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
             this.label5.Location = new System.Drawing.Point(6, 235);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 20);
+            this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Կոչում";
             // 
@@ -459,7 +459,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
             this.label4.Location = new System.Drawing.Point(6, 192);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(48, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Տարիք";
             // 
@@ -471,7 +471,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(6, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Հայրանուն";
             // 
@@ -483,7 +483,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(6, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ազգանուն";
             // 
@@ -506,23 +506,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Հրետանու տվյալներ";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(294, 111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(294, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
             // 
             // textBoxAltilerTitle
             // 
@@ -581,7 +564,7 @@
             this.label12.ForeColor = System.Drawing.Color.DarkRed;
             this.label12.Location = new System.Drawing.Point(6, 119);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 20);
+            this.label12.Size = new System.Drawing.Size(48, 20);
             this.label12.TabIndex = 3;
             this.label12.Text = "Տեսակ";
             // 
@@ -592,7 +575,7 @@
             this.label11.ForeColor = System.Drawing.Color.DarkRed;
             this.label11.Location = new System.Drawing.Point(6, 161);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(210, 20);
+            this.label11.Size = new System.Drawing.Size(155, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Արտադրման տարեթիվ";
             // 
@@ -603,7 +586,7 @@
             this.label10.ForeColor = System.Drawing.Color.DarkRed;
             this.label10.Location = new System.Drawing.Point(6, 77);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 20);
+            this.label10.Size = new System.Drawing.Size(44, 20);
             this.label10.TabIndex = 1;
             this.label10.Text = "Մոդել";
             // 
@@ -614,7 +597,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(6, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 20);
+            this.label9.Size = new System.Drawing.Size(47, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Անուն";
             // 
@@ -657,6 +640,7 @@
             this.buttonSelectDB.TabIndex = 2;
             this.buttonSelectDB.Text = "Փնտրում  \r\nԲազայում";
             this.buttonSelectDB.UseVisualStyleBackColor = false;
+            this.buttonSelectDB.Click += new System.EventHandler(this.buttonSelectDB_Click);
             // 
             // buttonSaveExcel
             // 
@@ -686,6 +670,26 @@
             this.buttonSaveDB.UseVisualStyleBackColor = false;
             this.buttonSaveDB.Click += new System.EventHandler(this.buttonSaveDB_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.lxhpn;
+            this.pictureBox2.Location = new System.Drawing.Point(294, 111);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.hhpn;
+            this.pictureBox1.Location = new System.Drawing.Point(294, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,10 +706,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

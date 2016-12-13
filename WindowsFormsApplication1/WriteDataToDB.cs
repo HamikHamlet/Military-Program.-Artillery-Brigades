@@ -12,15 +12,16 @@ namespace WindowsFormsApplication1
     {
         List<string> encodingValue;
         DataModel da;
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades4\WindowsFormsApplication1\bin\Debug\armydata (2).mdf;Integrated Security=True";
+        internal string connectionString { get; set; }
 
         public WriteDataToDB()
         {
 
         }
 
-        public WriteDataToDB(DataModel datamodel)
+        public WriteDataToDB(DataModel datamodel,string conection)
         {
+            connectionString = conection;
             CodingData(datamodel);
             InsertData(datamodel);
         }
@@ -58,32 +59,34 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void  CodingData(DataModel datamodelcoding)
+        public void  CodingData(DataModel datamodelcoding)
         {
             encodingValue = new List<string>();
             for (int i = 0; i < 13; i++)
             {
-            StringBuilder st = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
                 if (i != 4)
                 {
 
-                    string s = datamodelcoding.DatamodelValueStringParametrs(i);
-                    for (int j = 0; j < s.Length; j++)
+                    string encodedLine = datamodelcoding.DatamodelValueStringParametrs(i);
+                    for (int j = 0; j < encodedLine.Length; j++)
                     {
                         
-                        char c = s[j];
+                        char c = encodedLine[j];
                         int codechar = c + 10;
-                        st.Append((char)codechar);
+                        stringBuilder.Append((char)codechar);
 
                     }
                      
-                     encodingValue.Add(st.ToString());
+                     encodingValue.Add(stringBuilder.ToString());
                     
                 }
             }
            
            
         }
+
+
        
     }
 }
