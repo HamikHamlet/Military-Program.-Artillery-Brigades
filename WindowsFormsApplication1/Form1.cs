@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             Selected();
            
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\labuser11\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\rduser12\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -74,7 +74,16 @@ namespace WindowsFormsApplication1
         {
             datamodel=new DataModel(textBoxPassportID.Text);
             await Task.Run(() => selectdataToDB = new SelectDataToDB(datamodel, connectionString));
-            
+            textBoxPassportID.Text = selectdataToDB.GetData(0);
+            textboxFirstName.Text = selectdataToDB.GetData(1);
+            textBoxLastName.Text = selectdataToDB.GetData(2);
+            textBoxFName.Text = selectdataToDB.GetData(3);
+            numericUpDownAge.Value = Convert.ToDecimal( selectdataToDB.GetData(4));
+            comboBoxTitle.Text = selectdataToDB.GetData(5);
+            comboBoxClassical.Text = selectdataToDB.GetData(6);
+            comboBoxCompany.Text = selectdataToDB.GetData(7);
+            comboBoxBattalion.Text = selectdataToDB.GetData(8);
+            comboBoxBowl.Text = selectdataToDB.GetData(9);
         }
 
     }

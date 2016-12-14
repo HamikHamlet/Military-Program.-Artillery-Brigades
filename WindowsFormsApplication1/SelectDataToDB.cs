@@ -13,10 +13,12 @@ namespace WindowsFormsApplication1
         SqlConnection con;
         SqlCommand com;
         SqlDataReader reader;
-        List<String> dataList;
+        static List<String> dataList;
         StringBuilder stringBuilder;
         WriteDataToDB data;
+
         internal string connectionString { get; set; }
+        internal DataModel datamodel { get; set; }
 
         public SelectDataToDB()
         {
@@ -25,10 +27,12 @@ namespace WindowsFormsApplication1
         public SelectDataToDB(DataModel data, string conection)
         {
             connectionString = conection;
-            SelectToDB(data);
+            datamodel = data;
+            SelectToDB();
+
         }
 
-        private void SelectToDB(DataModel da)
+        private void SelectToDB()
         {
             con = new SqlConnection(connectionString);
             con.Open();
@@ -37,7 +41,7 @@ namespace WindowsFormsApplication1
 		Inner JOIN solderTitle
 	 ON solderTable.PassportID=solderTitle.passportID
 	 WHERE 
-	 solderTable.PassportID='" + EnCoding(da.solderPassportID) + "'", con);
+	 solderTable.PassportID='" + EnCoding(datamodel.solderPassportID) + "'", con);
             reader = com.ExecuteReader();
             dataList = new List<String>();
 
@@ -54,22 +58,28 @@ namespace WindowsFormsApplication1
                 dataList.Add(reader["solderCompany"].ToString());
                 dataList.Add(reader["solderBattalion"].ToString());
                 dataList.Add(reader["solderBowl"].ToString());
-
-
             }
 
-            for (int i = 0; i < dataList.Count; i++)
-            {
-                if (i == 4)
-                    MessageBox.Show(dataList[i]);
-                else
-                    MessageBox.Show(DeCoding(dataList[i]));
 
-            }
+            //for (int i = 0; i < dataList.Count; i++)
+            //{
+            //    if (i == 4)
+            //        MessageBox.Show(dataList[i]);
+            //    else
+            //        MessageBox.Show(DeCoding(dataList[i]));
+
+            //}
 
 
         }
 
+        public string GetData(int index)
+        {
+            if (index == 4)
+                return dataList[index];
+            else
+                return DeCoding(dataList[index]);
+        }
 
 
         private string DeCoding(string str)
