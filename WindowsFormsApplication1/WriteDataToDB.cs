@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        public WriteDataToDB(DataModel datamodel,string conection)
+        public WriteDataToDB(DataModel datamodel, string conection)
         {
             connectionString = conection;
             CodingData(datamodel);
@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
         }
         public void InsertData(DataModel datamodel)
         {
-           
+
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 using (SqlCommand sqlCommand = new SqlCommand())
@@ -60,34 +60,34 @@ namespace WindowsFormsApplication1
 
         }
 
-         private void  CodingData(DataModel datamodelcoding)
+        private void CodingData(DataModel datamodelcoding)
         {
             encodingValue = new List<string>();
             for (int i = 0; i < 13; i++)
             {
-          stringBuilder = new StringBuilder();
+                stringBuilder = new StringBuilder();
                 if (i != 4)
                 {
 
                     string encodedLine = datamodelcoding.DatamodelValueStringParametrs(i);
                     for (int j = 0; j < encodedLine.Length; j++)
                     {
-                        
+
                         char c = encodedLine[j];
                         int codechar = c + 10;
                         stringBuilder.Append((char)codechar);
 
                     }
-                     
-                     encodingValue.Add(stringBuilder.ToString());
-                    
+
+                    encodingValue.Add(stringBuilder.ToString());
+
                 }
             }
-           
-           
+
+
         }
 
 
-       
+
     }
 }

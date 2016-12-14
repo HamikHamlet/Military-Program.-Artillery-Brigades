@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
@@ -39,10 +40,10 @@ namespace WindowsFormsApplication1
 	 solderTable.PassportID='" + EnCoding(da.solderPassportID) + "'", con);
             reader = com.ExecuteReader();
             dataList = new List<String>();
-            
+
             while (reader.Read())
             {
-                
+
                 dataList.Add(reader["PassportID"].ToString());
                 dataList.Add(reader["Soldername"].ToString());
                 dataList.Add(reader["Soldersurname"].ToString());
@@ -54,57 +55,64 @@ namespace WindowsFormsApplication1
                 dataList.Add(reader["solderBattalion"].ToString());
                 dataList.Add(reader["solderBowl"].ToString());
 
-                
+
             }
 
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                if (i == 4)
+                    MessageBox.Show(dataList[i]);
+                else
+                    MessageBox.Show(DeCoding(dataList[i]));
 
-            
+            }
+
 
         }
 
 
 
-        private  void DeCoding(string str)
+        private string DeCoding(string str)
         {
             stringBuilder = new StringBuilder();
-            
-                string encodedLine = str;
-                for (int j = 0; j < encodedLine.Length; j++)
-                {
 
-                    char c = encodedLine[j];
-                    int codechar = c - 10;
-                    stringBuilder.Append((char)codechar);
+            string encodedLine = str;
+            for (int j = 0; j < encodedLine.Length; j++)
+            {
 
-                }
-
-                dataList.Add( stringBuilder.ToString());
-
-          //  
-            }
-
-          private string EnCoding(string str)
-        {
-            stringBuilder = new StringBuilder();
-            
-                string encodedLine = str;
-                for (int j = 0; j < encodedLine.Length; j++)
-                {
-
-                    char c = encodedLine[j];
-                    int codechar = c + 10;
-                    stringBuilder.Append((char)codechar);
-
-                }
-
-               return stringBuilder.ToString();
+                char c = encodedLine[j];
+                int codechar = c - 10;
+                stringBuilder.Append((char)codechar);
 
             }
 
-       
+            return stringBuilder.ToString();
 
-      
-        
+            //  
         }
+
+        private string EnCoding(string str)
+        {
+            stringBuilder = new StringBuilder();
+
+            string encodedLine = str;
+            for (int j = 0; j < encodedLine.Length; j++)
+            {
+
+                char c = encodedLine[j];
+                int codechar = c + 10;
+                stringBuilder.Append((char)codechar);
+
+            }
+
+            return stringBuilder.ToString();
+
+        }
+
+
+
+
+
     }
 }
+

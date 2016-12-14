@@ -214,6 +214,7 @@ namespace WindowsFormsApplication1
             da[1] = SolderName;
             da[2] = SoldeSurername;
             da[3] = Solderfname;
+            da[4] = Solderage.ToString();
             da[5] = Soldertitle;
             da[6] = Solderclassical;
             da[7] = Soldercompany;

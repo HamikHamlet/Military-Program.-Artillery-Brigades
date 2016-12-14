@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             Selected();
            
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\LabUser33\Documents\armydata.mdf;Integrated Security=True;Connect Timeout=30";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\labuser11\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         {
             datamodel=new DataModel(textBoxPassportID.Text);
             await Task.Run(() => selectdataToDB = new SelectDataToDB(datamodel, connectionString));
-            //
+            
         }
 
     }
