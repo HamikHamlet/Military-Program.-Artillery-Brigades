@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
     {
         List<string> encodingValue;
         DataModel da;
+        StringBuilder stringBuilder;
         internal string connectionString { get; set; }
 
         public WriteDataToDB()
@@ -59,12 +60,12 @@ namespace WindowsFormsApplication1
 
         }
 
-        public void  CodingData(DataModel datamodelcoding)
+         private void  CodingData(DataModel datamodelcoding)
         {
             encodingValue = new List<string>();
             for (int i = 0; i < 13; i++)
             {
-            StringBuilder stringBuilder = new StringBuilder();
+          stringBuilder = new StringBuilder();
                 if (i != 4)
                 {
 
