@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SelectDataToDB.cs" />
     <Compile Include="WriteDataToDB.cs" />
     <Compile Include="WriteDataToExcel.cs" />
     <EmbeddedResource Include="Form1.resx">
