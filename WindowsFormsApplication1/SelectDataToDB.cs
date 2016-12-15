@@ -109,13 +109,7 @@ namespace WindowsFormsApplication1
                 stringBuilder.Append((char)codechar);
             }
             return stringBuilder.ToString();
-
         }
-
-
-
-
-
     }
 }
 

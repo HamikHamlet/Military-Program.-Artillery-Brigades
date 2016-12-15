@@ -50,6 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxAltilerTitle = new System.Windows.Forms.TextBox();
             this.numericUpDownaltiler = new System.Windows.Forms.NumericUpDown();
             this.textBoxArtilleryModel = new System.Windows.Forms.TextBox();
@@ -63,15 +65,13 @@
             this.buttonSelectDB = new System.Windows.Forms.Button();
             this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.buttonSaveDB = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxArmy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -507,6 +507,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Հրետանու տվյալներ";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.lxhpn;
+            this.pictureBox2.Location = new System.Drawing.Point(294, 111);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.hhpn;
+            this.pictureBox1.Location = new System.Drawing.Point(294, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // textBoxAltilerTitle
             // 
             this.textBoxAltilerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -670,26 +690,6 @@
             this.buttonSaveDB.UseVisualStyleBackColor = false;
             this.buttonSaveDB.Click += new System.EventHandler(this.buttonSaveDB_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.lxhpn;
-            this.pictureBox2.Location = new System.Drawing.Point(294, 111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.hhpn;
-            this.pictureBox1.Location = new System.Drawing.Point(294, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -699,6 +699,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxArmy);
+            this.MaximumSize = new System.Drawing.Size(770, 489);
+            this.MinimumSize = new System.Drawing.Size(770, 489);
             this.Name = "Form1";
             this.Text = "Զինվորական Բաժին";
             this.groupBoxArmy.ResumeLayout(false);
@@ -706,10 +708,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
