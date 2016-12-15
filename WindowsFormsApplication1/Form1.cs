@@ -17,43 +17,39 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-            Selected();
-           
+            Selecteditem();
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\rduser12\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\LabUser33\Documents\armydata.mdf;Integrated Security=True;Connect Timeout=30";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
         SelectDataToDB selectdataToDB;
         private async void buttonSaveExcel_Click(object sender, EventArgs e)
         {
-           
-            int chechTextbox=ChechTextBoxText();
+            int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
-                 datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
+                datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
 
                 await Task.Run(() => writedatatoexcel = new WriteDataToExcel(datamodel));
-
             }
             else
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
         }
-
         private async void buttonSaveDB_Click(object sender, EventArgs e)
         {
-           
-            int chechTextbox=ChechTextBoxText();
+            
+            int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
                 datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
-                await Task.Run(() => writeDataToDB = new WriteDataToDB(datamodel,connectionString));
+                await Task.Run(() => writeDataToDB = new WriteDataToDB(datamodel, connectionString));
             }
             else
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
         }
-        
+
         private int ChechTextBoxText()
         {
             if (textBoxAltilerTitle.Text != string.Empty && textBoxArtilleryModel.Text != string.Empty && textBoxArtilleryName.Text != string.Empty && textboxFirstName.Text != string.Empty && textBoxFName.Text != string.Empty && textBoxLastName.Text != string.Empty && textBoxPassportID.Text != string.Empty)
@@ -61,7 +57,7 @@ namespace WindowsFormsApplication1
             else
                 return -1;
         }
-        private void Selected()
+        private void Selecteditem()
         {
             comboBoxBattalion.SelectedIndex = 0;
             comboBoxBowl.SelectedIndex = 0;
@@ -72,19 +68,29 @@ namespace WindowsFormsApplication1
 
         private async void buttonSelectDB_Click(object sender, EventArgs e)
         {
-            datamodel=new DataModel(textBoxPassportID.Text);
-            await Task.Run(() => selectdataToDB = new SelectDataToDB(datamodel, connectionString));
-            textBoxPassportID.Text = selectdataToDB.GetData(0);
-            textboxFirstName.Text = selectdataToDB.GetData(1);
-            textBoxLastName.Text = selectdataToDB.GetData(2);
-            textBoxFName.Text = selectdataToDB.GetData(3);
-            numericUpDownAge.Value = Convert.ToDecimal( selectdataToDB.GetData(4));
-            comboBoxTitle.Text = selectdataToDB.GetData(5);
-            comboBoxClassical.Text = selectdataToDB.GetData(6);
-            comboBoxCompany.Text = selectdataToDB.GetData(7);
-            comboBoxBattalion.Text = selectdataToDB.GetData(8);
-            comboBoxBowl.Text = selectdataToDB.GetData(9);
+            datamodel = new DataModel(textBoxPassportID.Text);
+            try
+            {
+                await Task.Run(() => selectdataToDB = new SelectDataToDB(datamodel, connectionString));
+                textBoxPassportID.Text = selectdataToDB.GetData(0);
+                textboxFirstName.Text = selectdataToDB.GetData(1);
+                textBoxLastName.Text = selectdataToDB.GetData(2);
+                textBoxFName.Text = selectdataToDB.GetData(3);
+                numericUpDownAge.Value = Convert.ToDecimal(selectdataToDB.GetData(4));
+                comboBoxTitle.Text = selectdataToDB.GetData(5);
+                comboBoxClassical.Text = selectdataToDB.GetData(6);
+                comboBoxCompany.Text = selectdataToDB.GetData(7);
+                comboBoxBattalion.Text = selectdataToDB.GetData(8);
+                comboBoxBowl.Text = selectdataToDB.GetData(9);
+                textBoxArtilleryName.Text = selectdataToDB.GetData(10);
+                textBoxArtilleryModel.Text = selectdataToDB.GetData(11);
+                textBoxAltilerTitle.Text = selectdataToDB.GetData(12);
+                numericUpDownaltiler.Value = Convert.ToDecimal(selectdataToDB.GetData(13));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Խնդրում ենք ներմուծեք ճիշտ ID");
+            }
         }
-
     }
 }
