@@ -59,6 +59,7 @@ namespace WindowsFormsApplication1
         }
         private void Selecteditem()
         {
+            
             comboBoxBattalion.SelectedIndex = 0;
             comboBoxBowl.SelectedIndex = 0;
             comboBoxClassical.SelectedIndex = 0;
