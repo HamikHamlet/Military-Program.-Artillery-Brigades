@@ -24,6 +24,7 @@ namespace WindowsFormsApplication1
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
         SelectDataToDB selectdataToDB;
+        CalculatedData calculateData;
         private async void buttonSaveExcel_Click(object sender, EventArgs e)
         {
             int chechTextbox = ChechTextBoxText();
@@ -94,9 +95,19 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void label17_Click(object sender, EventArgs e)
+        
+        
+        private async void buttonSaveFile_Click(object sender, EventArgs e)
         {
+            await Task.Run(() => calculateData = new CalculatedData(double.Parse(textBoxazaltilleryX.Text), double.Parse(textBoxazAltilleryY.Text), double.Parse(textBoxInitialSpeed.Text), double.Parse(textBoxamAltilleryX.Text), double.Parse(textBoxamAltilleryY.Text), Convert.ToDouble(numericUpDownProjAngle.Value)));
+             
+            for (double t = 0; t <calculateData.FlightDuration; t+=1)
+            {
+                chart1.Series["Series"].Points.AddXY(calculateData.V1 * t, t - (10 * t * t) / 2);
+            }
+
 
         }
+         
     }
 }
