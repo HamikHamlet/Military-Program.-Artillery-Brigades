@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxArmy = new System.Windows.Forms.GroupBox();
             this.textBoxPassportID = new System.Windows.Forms.TextBox();
@@ -50,8 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxAltilerTitle = new System.Windows.Forms.TextBox();
             this.numericUpDownaltiler = new System.Windows.Forms.NumericUpDown();
             this.textBoxArtilleryModel = new System.Windows.Forms.TextBox();
@@ -62,16 +63,37 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonSaveFile = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonSelectDB = new System.Windows.Forms.Button();
             this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.buttonSaveDB = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxMaxSize = new System.Windows.Forms.TextBox();
+            this.textBoxFlightDuration = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericUpDownProjAngle = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxamAltilleryY = new System.Windows.Forms.TextBox();
+            this.textBoxamAltilleryX = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxinitialSpeed = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxazAltilleryY = new System.Windows.Forms.TextBox();
+            this.textBoxazaltilleryX = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBoxArmy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProjAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +104,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(8, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Անուն";
             // 
@@ -132,7 +154,7 @@
             this.label14.ForeColor = System.Drawing.Color.DarkRed;
             this.label14.Location = new System.Drawing.Point(8, 29);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 20);
+            this.label14.Size = new System.Drawing.Size(125, 20);
             this.label14.TabIndex = 18;
             this.label14.Text = "Անձնագրի ID";
             // 
@@ -189,7 +211,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkRed;
             this.label13.Location = new System.Drawing.Point(6, 393);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 20);
+            this.label13.Size = new System.Drawing.Size(63, 20);
             this.label13.TabIndex = 16;
             this.label13.Text = "Գունդ";
             // 
@@ -345,14 +367,7 @@
             "Ավագ Սերժանտ",
             "Ավագ",
             "Ենթասպա",
-            "Ավագ Ենթասպա",
-            "Կրտսեր Լեյտենանտ",
-            "Լեյտենանտ",
-            "Ավագ Լեյտենանտ",
-            "Կապիտան",
-            "Մայոր",
-            "Փոխգնդապետ",
-            "Գնդապետ"});
+            "Ավագ Ենթասպա"});
             this.comboBoxTitle.Location = new System.Drawing.Point(145, 235);
             this.comboBoxTitle.Name = "comboBoxTitle";
             this.comboBoxTitle.Size = new System.Drawing.Size(168, 28);
@@ -360,11 +375,16 @@
             // 
             // numericUpDownAge
             // 
-            this.numericUpDownAge.BackColor = System.Drawing.Color.Green;
+            this.numericUpDownAge.BackColor = System.Drawing.Color.Gainsboro;
             this.numericUpDownAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDownAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownAge.ForeColor = System.Drawing.SystemColors.Info;
+            this.numericUpDownAge.ForeColor = System.Drawing.SystemColors.ControlText;
             this.numericUpDownAge.Location = new System.Drawing.Point(240, 192);
+            this.numericUpDownAge.Maximum = new decimal(new int[] {
+            63,
+            0,
+            0,
+            0});
             this.numericUpDownAge.Minimum = new decimal(new int[] {
             18,
             0,
@@ -411,7 +431,7 @@
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
             this.label8.Location = new System.Drawing.Point(6, 354);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.Size = new System.Drawing.Size(116, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Գումարտակ";
             // 
@@ -423,7 +443,7 @@
             this.label7.ForeColor = System.Drawing.Color.DarkRed;
             this.label7.Location = new System.Drawing.Point(6, 317);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 20);
+            this.label7.Size = new System.Drawing.Size(60, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Վաշտ";
             // 
@@ -435,7 +455,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkRed;
             this.label6.Location = new System.Drawing.Point(6, 275);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.Size = new System.Drawing.Size(71, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Դասակ";
             // 
@@ -447,7 +467,7 @@
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
             this.label5.Location = new System.Drawing.Point(6, 235);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
+            this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Կոչում";
             // 
@@ -459,7 +479,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
             this.label4.Location = new System.Drawing.Point(6, 192);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 20);
+            this.label4.Size = new System.Drawing.Size(66, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Տարիք";
             // 
@@ -471,7 +491,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(6, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.Size = new System.Drawing.Size(108, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Հայրանուն";
             // 
@@ -483,14 +503,12 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(6, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ազգանուն";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.textBoxAltilerTitle);
             this.groupBox1.Controls.Add(this.numericUpDownaltiler);
             this.groupBox1.Controls.Add(this.textBoxArtilleryModel);
@@ -500,32 +518,12 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(337, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 444);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(409, 212);
+            this.groupBox1.Size = new System.Drawing.Size(319, 218);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Հրետանու տվյալներ";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.lxhpn;
-            this.pictureBox2.Location = new System.Drawing.Point(294, 111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.hhpn;
-            this.pictureBox1.Location = new System.Drawing.Point(294, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
             // 
             // textBoxAltilerTitle
             // 
@@ -537,10 +535,10 @@
             // 
             // numericUpDownaltiler
             // 
-            this.numericUpDownaltiler.BackColor = System.Drawing.Color.Green;
+            this.numericUpDownaltiler.BackColor = System.Drawing.Color.Gainsboro;
             this.numericUpDownaltiler.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDownaltiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownaltiler.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.numericUpDownaltiler.ForeColor = System.Drawing.SystemColors.Desktop;
             this.numericUpDownaltiler.Location = new System.Drawing.Point(215, 161);
             this.numericUpDownaltiler.Maximum = new decimal(new int[] {
             2016,
@@ -584,7 +582,7 @@
             this.label12.ForeColor = System.Drawing.Color.DarkRed;
             this.label12.Location = new System.Drawing.Point(6, 119);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 20);
+            this.label12.Size = new System.Drawing.Size(66, 20);
             this.label12.TabIndex = 3;
             this.label12.Text = "Տեսակ";
             // 
@@ -595,7 +593,7 @@
             this.label11.ForeColor = System.Drawing.Color.DarkRed;
             this.label11.Location = new System.Drawing.Point(6, 161);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(155, 20);
+            this.label11.Size = new System.Drawing.Size(210, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Արտադրման տարեթիվ";
             // 
@@ -606,7 +604,7 @@
             this.label10.ForeColor = System.Drawing.Color.DarkRed;
             this.label10.Location = new System.Drawing.Point(6, 77);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 20);
+            this.label10.Size = new System.Drawing.Size(59, 20);
             this.label10.TabIndex = 1;
             this.label10.Text = "Մոդել";
             // 
@@ -617,27 +615,29 @@
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(6, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 20);
+            this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Անուն";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.buttonSaveFile);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.buttonSelectDB);
             this.groupBox2.Controls.Add(this.buttonSaveExcel);
             this.groupBox2.Controls.Add(this.buttonSaveDB);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(337, 222);
+            this.groupBox2.Location = new System.Drawing.Point(782, 444);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 216);
+            this.groupBox2.Size = new System.Drawing.Size(409, 218);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Գրանցման բաժին";
             // 
             // buttonSaveFile
             // 
-            this.buttonSaveFile.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonSaveFile.BackColor = System.Drawing.Color.Sienna;
             this.buttonSaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveFile.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSaveFile.ForeColor = System.Drawing.Color.Black;
@@ -648,9 +648,29 @@
             this.buttonSaveFile.Text = "Հաշվարկման Բաժին";
             this.buttonSaveFile.UseVisualStyleBackColor = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.lxhpn1;
+            this.pictureBox2.Location = new System.Drawing.Point(294, 35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 73);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.hhpn;
+            this.pictureBox1.Location = new System.Drawing.Point(208, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // buttonSelectDB
             // 
-            this.buttonSelectDB.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonSelectDB.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonSelectDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectDB.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSelectDB.ForeColor = System.Drawing.Color.Black;
@@ -664,7 +684,7 @@
             // 
             // buttonSaveExcel
             // 
-            this.buttonSaveExcel.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonSaveExcel.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonSaveExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveExcel.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSaveExcel.ForeColor = System.Drawing.Color.Black;
@@ -678,7 +698,7 @@
             // 
             // buttonSaveDB
             // 
-            this.buttonSaveDB.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonSaveDB.BackColor = System.Drawing.Color.Sienna;
             this.buttonSaveDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveDB.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSaveDB.ForeColor = System.Drawing.Color.Black;
@@ -690,17 +710,225 @@
             this.buttonSaveDB.UseVisualStyleBackColor = false;
             this.buttonSaveDB.Click += new System.EventHandler(this.buttonSaveDB_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBoxMaxSize);
+            this.groupBox3.Controls.Add(this.textBoxFlightDuration);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.numericUpDownProjAngle);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.textBoxamAltilleryY);
+            this.groupBox3.Controls.Add(this.textBoxamAltilleryX);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.textBoxinitialSpeed);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.textBoxazAltilleryY);
+            this.groupBox3.Controls.Add(this.textBoxazaltilleryX);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(341, 444);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(435, 218);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Հաշվարկման բաժին";
+            // 
+            // textBoxMaxSize
+            // 
+            this.textBoxMaxSize.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMaxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMaxSize.Location = new System.Drawing.Point(304, 177);
+            this.textBoxMaxSize.Name = "textBoxMaxSize";
+            this.textBoxMaxSize.Size = new System.Drawing.Size(62, 24);
+            this.textBoxMaxSize.TabIndex = 13;
+            // 
+            // textBoxFlightDuration
+            // 
+            this.textBoxFlightDuration.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxFlightDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFlightDuration.Location = new System.Drawing.Point(304, 146);
+            this.textBoxFlightDuration.Name = "textBoxFlightDuration";
+            this.textBoxFlightDuration.Size = new System.Drawing.Size(62, 24);
+            this.textBoxFlightDuration.TabIndex = 12;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.DarkRed;
+            this.label20.Location = new System.Drawing.Point(6, 177);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(270, 20);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Մաքսիմալ բարձրությունը (մ.)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.DarkRed;
+            this.label19.Location = new System.Drawing.Point(6, 146);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(235, 20);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Թռիչքի տևողությունը (ր.)";
+            // 
+            // numericUpDownProjAngle
+            // 
+            this.numericUpDownProjAngle.BackColor = System.Drawing.Color.Gainsboro;
+            this.numericUpDownProjAngle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownProjAngle.Location = new System.Drawing.Point(304, 115);
+            this.numericUpDownProjAngle.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.numericUpDownProjAngle.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownProjAngle.Name = "numericUpDownProjAngle";
+            this.numericUpDownProjAngle.Size = new System.Drawing.Size(61, 24);
+            this.numericUpDownProjAngle.TabIndex = 9;
+            this.numericUpDownProjAngle.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.DarkRed;
+            this.label18.Location = new System.Drawing.Point(6, 115);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(219, 20);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Արկի կրակման անկյուն";
+            // 
+            // textBoxamAltilleryY
+            // 
+            this.textBoxamAltilleryY.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxamAltilleryY.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxamAltilleryY.ForeColor = System.Drawing.Color.Black;
+            this.textBoxamAltilleryY.Location = new System.Drawing.Point(367, 84);
+            this.textBoxamAltilleryY.Name = "textBoxamAltilleryY";
+            this.textBoxamAltilleryY.Size = new System.Drawing.Size(62, 24);
+            this.textBoxamAltilleryY.TabIndex = 7;
+            // 
+            // textBoxamAltilleryX
+            // 
+            this.textBoxamAltilleryX.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxamAltilleryX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxamAltilleryX.ForeColor = System.Drawing.Color.Black;
+            this.textBoxamAltilleryX.Location = new System.Drawing.Point(303, 84);
+            this.textBoxamAltilleryX.Name = "textBoxamAltilleryX";
+            this.textBoxamAltilleryX.Size = new System.Drawing.Size(62, 24);
+            this.textBoxamAltilleryX.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.DarkRed;
+            this.label17.Location = new System.Drawing.Point(6, 84);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(265, 20);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Հրետանու կորդինատներ X-Y";
+            // 
+            // textBoxinitialSpeed
+            // 
+            this.textBoxinitialSpeed.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxinitialSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxinitialSpeed.Location = new System.Drawing.Point(303, 53);
+            this.textBoxinitialSpeed.Name = "textBoxinitialSpeed";
+            this.textBoxinitialSpeed.Size = new System.Drawing.Size(126, 24);
+            this.textBoxinitialSpeed.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.DarkRed;
+            this.label16.Location = new System.Drawing.Point(6, 53);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(295, 20);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Նախնական արագություն (կմ/ժ)";
+            // 
+            // textBoxazAltilleryY
+            // 
+            this.textBoxazAltilleryY.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxazAltilleryY.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxazAltilleryY.ForeColor = System.Drawing.Color.Black;
+            this.textBoxazAltilleryY.Location = new System.Drawing.Point(367, 22);
+            this.textBoxazAltilleryY.Name = "textBoxazAltilleryY";
+            this.textBoxazAltilleryY.Size = new System.Drawing.Size(62, 24);
+            this.textBoxazAltilleryY.TabIndex = 2;
+            // 
+            // textBoxazaltilleryX
+            // 
+            this.textBoxazaltilleryX.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxazaltilleryX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxazaltilleryX.ForeColor = System.Drawing.Color.Black;
+            this.textBoxazaltilleryX.Location = new System.Drawing.Point(303, 22);
+            this.textBoxazaltilleryX.Name = "textBoxazaltilleryX";
+            this.textBoxazaltilleryX.Size = new System.Drawing.Size(62, 24);
+            this.textBoxazaltilleryX.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DarkRed;
+            this.label15.Location = new System.Drawing.Point(6, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(300, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Հակառակորդի կորդինատներ X-Y";
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(341, 15);
+            this.chart1.Name = "chart1";
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.DarkRed;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.DarkRed;
+            series1.MarkerColor = System.Drawing.Color.DarkRed;
+            series1.MarkerImageTransparentColor = System.Drawing.Color.White;
+            series1.MarkerSize = 12;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series1.Name = "Series";
+            series1.ShadowColor = System.Drawing.Color.LightGray;
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(850, 423);
+            this.chart1.TabIndex = 21;
+            this.chart1.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(754, 450);
+            this.ClientSize = new System.Drawing.Size(1203, 674);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxArmy);
-            this.MaximumSize = new System.Drawing.Size(770, 489);
-            this.MinimumSize = new System.Drawing.Size(770, 489);
             this.Name = "Form1";
             this.Text = "Զինվորական Բաժին";
             this.groupBoxArmy.ResumeLayout(false);
@@ -708,10 +936,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownaltiler)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProjAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -753,6 +985,23 @@
         private System.Windows.Forms.Button buttonSelectDB;
         private System.Windows.Forms.Button buttonSaveExcel;
         private System.Windows.Forms.Button buttonSaveDB;
+      
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxazAltilleryY;
+        private System.Windows.Forms.TextBox textBoxazaltilleryX;
+        private System.Windows.Forms.TextBox textBoxinitialSpeed;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBoxamAltilleryY;
+        private System.Windows.Forms.TextBox textBoxamAltilleryX;
+        private System.Windows.Forms.NumericUpDown numericUpDownProjAngle;
+        private System.Windows.Forms.TextBox textBoxMaxSize;
+        private System.Windows.Forms.TextBox textBoxFlightDuration;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
