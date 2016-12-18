@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
         }
         private async void buttonSaveDB_Click(object sender, EventArgs e)
         {
-            
+
             int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
@@ -60,14 +60,15 @@ namespace WindowsFormsApplication1
         }
         private void Selecteditem()
         {
-            
+
             comboBoxBattalion.SelectedIndex = 0;
             comboBoxBowl.SelectedIndex = 0;
             comboBoxClassical.SelectedIndex = 0;
             comboBoxCompany.SelectedIndex = 0;
             comboBoxTitle.SelectedIndex = 0;
+            chart1.ChartAreas[0].AxisY.Maximum = 300;
+            chart1.ChartAreas[0].AxisX.Maximum = 200;
         }
-
         private async void buttonSelectDB_Click(object sender, EventArgs e)
         {
             datamodel = new DataModel(textBoxPassportID.Text);
@@ -94,20 +95,21 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Խնդրում ենք ներմուծեք ճիշտ ID");
             }
         }
-
-        
-        
-        private async void buttonSaveFile_Click(object sender, EventArgs e)
+        private void buttonSaveFile_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => calculateData = new CalculatedData(double.Parse(textBoxazaltilleryX.Text), double.Parse(textBoxazAltilleryY.Text), double.Parse(textBoxInitialSpeed.Text), double.Parse(textBoxamAltilleryX.Text), double.Parse(textBoxamAltilleryY.Text), Convert.ToDouble(numericUpDownProjAngle.Value)));
-             
-            for (double t = 0; t <calculateData.FlightDuration; t+=1)
+            calculateData = new CalculatedData(double.Parse(textBoxazaltilleryX.Text), double.Parse(textBoxazAltilleryY.Text), double.Parse(textBoxInitialSpeed.Text), double.Parse(textBoxamAltilleryX.Text), double.Parse(textBoxamAltilleryY.Text), Convert.ToDouble(numericUpDownProjAngle.Value));
+            chart1.Series[0].Points.Clear();
+            
+            for (double t = 0; t < calculateData.FlightDuration; t += 0.1)
             {
-                chart1.Series["Series"].Points.AddXY(calculateData.V1 * t, t - (10 * t * t) / 2);
+                chart1.Series["Series"].Points.AddXY(Math.Floor(calculateData.V1 * t), Math.Floor(calculateData.V2 * t - (10 * t * t) / 2));
+                
             }
-
+            
+             chart1.Series["Series"].Points.AddXY(( calculateData.AdversaryX),( calculateData.AdversaryY));
+             textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
+                
 
         }
-         
     }
 }
