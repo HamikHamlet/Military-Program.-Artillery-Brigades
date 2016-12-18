@@ -17,7 +17,11 @@ namespace WindowsFormsApplication1
         Excel.Worksheet excelSheet;
         Excel.Application excelData;
         Excel.Range testCell;
+        StringBuilder stringBuilder;
+        CalculatedData calculatedata;
         object misValue = System.Reflection.Missing.Value;
+        DataModel data;
+        string directoryName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
 
         public WriteDataToExcel()
         {
@@ -31,7 +35,6 @@ namespace WindowsFormsApplication1
         }
         private string GetDefaultDirectory()
         {
-            string directoryName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
             if (!Directory.Exists(directoryName))
                 Directory.CreateDirectory(directoryName);
             return directoryName;
@@ -39,7 +42,7 @@ namespace WindowsFormsApplication1
         public void CreatdataExcel(string path, DataModel datamodel)
         {
             excelData = new Excel.Application();
-            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder = new StringBuilder();
             stringBuilder.Append(path).Append("\\").Append(datamodel.solderPassportID).Append(datamodel.SolderName).Append(datamodel.SoldeSurername).Append(datamodel.Solderfname).Append(".csv");
             List<string> listofDataName = datamodel.DatamodelValue();
 
@@ -49,10 +52,10 @@ namespace WindowsFormsApplication1
             int excelCallsCount = TestExcelCalls(stringBuilder.ToString());
             for (int i = 0; i < listofDataName.Count; i++)
             {
-                ExcelGeneralDataDesign(excelCallsCount,i+1);
+                ExcelGeneralDataDesign(excelCallsCount, i + 1);
                 excelSheet.Cells[excelCallsCount, i + 1] = listofDataName[i];
 
-                for (int j = 0; j < listofDataName.Count - 1;)
+                for (int j = 0; j < listofDataName.Count - 1; )
                 {
                     if (i == 4 || i == 13)
                     {
@@ -96,13 +99,13 @@ namespace WindowsFormsApplication1
         }
         private void ExcelGeneralDataDesign(int index1, int index2)
         {
-            
+
 
             excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.White);
             excelSheet.Cells[index1, index2].Font.Size = 13;
-            excelSheet.Cells[index1,index2].Interior.Color =ColorTranslator.ToOle(Color.DarkGreen);
+            excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.DarkGreen);
             excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
-            
+
         }
         private void ExcelSolderDataDesign(int index1, int index2)
         {
@@ -113,6 +116,25 @@ namespace WindowsFormsApplication1
             excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.LightGray);
             excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
 
+        }
+
+
+        public void WriteCalcutateDataToExcel()
+        {
+            data = new DataModel();
+            List<string> listofData = data.DatamodelValueCalculate();
+            if (Directory.Exists(directoryName))
+            {
+                StringBuilder path = stringBuilder.Append(data.solderPassportID).Append(data.SolderName).Append(data.SoldeSurername).Append(data.Solderfname).Append(".csv");
+                workbook = excelData.Workbooks.Open(path.ToString());
+                int count = TestExcelCalls(path.ToString());
+                for (int i = 0; i < listofData.Count; i++)
+                {
+                    excelSheet.Cells[count, i] = listofData[i];
+                    excelSheet.Cells[count + 1, i] = calculatedata.ListCalculateData(i);
+                }
+
+            }
         }
     }
 }

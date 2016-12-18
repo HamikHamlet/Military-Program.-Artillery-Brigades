@@ -178,7 +178,7 @@ namespace WindowsFormsApplication1
             get { return altilerage; }
             set { altilerage = value; }
         }
-       public List<string> DatamodelValue()
+        public List<string> DatamodelValue()
         {
             List<string> list = new List<string>();
             list.Add("Անձնագրի ID  ");
@@ -197,6 +197,21 @@ namespace WindowsFormsApplication1
             list.Add("Հրետանու Արտադրման տարեթիվ  ");
 
 
+            return list;
+
+        }
+
+        public List<string> DatamodelValueCalculate()
+        {
+            List<string> list = new List<string>();
+            list.Add("Հակառակորդի կորդինատներ X ");
+            list.Add("Հակառակորդի կորդինատներ Y ");
+            list.Add("Նախնական արագություն (կմ/ժ) ");
+            list.Add("Հրետանու կորդինատներ X  ");
+            list.Add("Հրետանու կորդինատներ Y  ");
+            list.Add("Արկի կրակման անկյուն  ");
+            list.Add("Թռիչքի տևողությունը (ր.)  ");
+            list.Add("Մաքսիմալ բարձրությունը (մ.)  ");
             return list;
 
         }
@@ -226,6 +241,6 @@ namespace WindowsFormsApplication1
 
             return da[index];
         }
-    
+
     }
 }

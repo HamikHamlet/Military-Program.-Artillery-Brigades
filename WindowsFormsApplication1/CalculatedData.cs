@@ -22,8 +22,8 @@ namespace WindowsFormsApplication1
             AltilleryX = altilleryx;
             AltilleryY = altilleryy;
             ProjectileAngle = projectilangle;
-            FlightDuration = Math.Abs( 2 * InitialSpeed * (Math.Sin(ProjectileAngle) / 10)); 
-            V1=InitialSpeed * Math.Cos(ProjectileAngle);
+            FlightDuration = Math.Abs(2 * InitialSpeed * (Math.Sin(ProjectileAngle) / 10));
+            V1 = InitialSpeed * Math.Cos(ProjectileAngle);
             V2 = InitialSpeed * Math.Sin(ProjectileAngle);
         }
 
@@ -97,9 +97,21 @@ namespace WindowsFormsApplication1
             double alpha = ProjectileAngle;
             double v0 = InitialSpeed;
 
+        }
+        public string ListCalculateData(int index)
+        {
+            string[] list = new string[8];
 
-          
-
+            list[0] = AdversaryX.ToString();
+            list[1] = AdversaryY.ToString();
+            list[2] = InitialSpeed.ToString();
+            list[3] = AltilleryX.ToString();
+            list[4] = AltilleryY.ToString();
+            list[5] = ProjectileAngle.ToString();
+            list[6] = FlightDuration.ToString();
+            list[7] = MaxSize.ToString();
+            
+            return list[index];
         }
     }
 }

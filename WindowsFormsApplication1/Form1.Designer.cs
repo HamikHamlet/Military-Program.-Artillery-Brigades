@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxArmy = new System.Windows.Forms.GroupBox();
             this.textBoxPassportID = new System.Windows.Forms.TextBox();
@@ -899,34 +899,34 @@
             // 
             // chart1
             // 
-            chartArea6.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea6.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Cross;
-            chartArea6.BackImageTransparentColor = System.Drawing.Color.White;
-            chartArea6.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea6.BorderColor = System.Drawing.Color.DarkRed;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Cross;
+            chartArea1.BackImageTransparentColor = System.Drawing.Color.White;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderColor = System.Drawing.Color.DarkRed;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(341, 15);
             this.chart1.Name = "chart1";
-            series6.BorderWidth = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series6.Color = System.Drawing.Color.DarkRed;
-            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.Legend = "Legend1";
-            series6.MarkerBorderColor = System.Drawing.Color.DarkRed;
-            series6.MarkerColor = System.Drawing.Color.DarkRed;
-            series6.MarkerImageTransparentColor = System.Drawing.Color.White;
-            series6.MarkerSize = 7;
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series6.Name = "Series";
-            dataPoint6.IsVisibleInLegend = true;
-            series6.Points.Add(dataPoint6);
-            series6.ShadowColor = System.Drawing.Color.LightGray;
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chart1.Series.Add(series6);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Color = System.Drawing.Color.DarkRed;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.DarkRed;
+            series1.MarkerColor = System.Drawing.Color.DarkRed;
+            series1.MarkerImageTransparentColor = System.Drawing.Color.White;
+            series1.MarkerSize = 7;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series1.Name = "Series";
+            dataPoint1.IsVisibleInLegend = true;
+            series1.Points.Add(dataPoint1);
+            series1.ShadowColor = System.Drawing.Color.LightGray;
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(945, 423);
             this.chart1.TabIndex = 21;
             this.chart1.Text = "chart";
@@ -934,7 +934,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(1146, 4);
+            this.panel1.Location = new System.Drawing.Point(1146, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(54, 62);
             this.panel1.TabIndex = 22;
@@ -942,7 +942,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(1146, 75);
+            this.panel2.Location = new System.Drawing.Point(1146, 96);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(54, 62);
             this.panel2.TabIndex = 23;

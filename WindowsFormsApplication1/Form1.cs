@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             Selecteditem();
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\rduser12\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -105,10 +105,11 @@ namespace WindowsFormsApplication1
                 chart1.Series["Series"].Points.AddXY(Math.Floor(calculateData.V1 * t), Math.Floor(calculateData.V2 * t - (10 * t * t) / 2));
                 
             }
-            
+            string AM707;
              chart1.Series["Series"].Points.AddXY(( calculateData.AdversaryX),( calculateData.AdversaryY));
              textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
-                
+             WriteDataToExcel write = new WriteDataToExcel();
+             write.WriteCalcutateDataToExcel();
 
         }
     }
