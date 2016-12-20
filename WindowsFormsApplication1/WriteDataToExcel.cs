@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             CreatdataExcel(pathDirectory, datamodel);
             MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
         }
-        private string GetDefaultDirectory()
+       public  string GetDefaultDirectory()
         {
             if (!Directory.Exists(directoryName))
                 Directory.CreateDirectory(directoryName);
@@ -94,6 +94,8 @@ namespace WindowsFormsApplication1
                 }
             }
             workbook.Close();
+            
+            excelData.Quit();
             return count;
 
         }
@@ -119,14 +121,20 @@ namespace WindowsFormsApplication1
         }
 
 
-        public void WriteCalcutateDataToExcel()
+        public void WriteCalcutateDataToExcel(DataModel dataModel)
         {
-            data = new DataModel();
-            List<string> listofData = data.DatamodelValueCalculate();
+            stringBuilder = new StringBuilder();
+            StringBuilder path = stringBuilder.Append(directoryName).Append("\\").Append(dataModel.solderPassportID).Append(dataModel.SolderName).Append(dataModel.SoldeSurername).Append(dataModel.Solderfname).Append(".csv");
+           
+            excelData = new Excel.Application();
+            int excelCallsCount = TestExcelCalls(path.ToString());
+            List<string> listofData = dataModel.DatamodelValueCalculate();
             if (Directory.Exists(directoryName))
             {
-                StringBuilder path = stringBuilder.Append(data.solderPassportID).Append(data.SolderName).Append(data.SoldeSurername).Append(data.Solderfname).Append(".csv");
                 workbook = excelData.Workbooks.Open(path.ToString());
+                Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
+                excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
+               
                 int count = TestExcelCalls(path.ToString());
                 for (int i = 0; i < listofData.Count; i++)
                 {
@@ -134,6 +142,10 @@ namespace WindowsFormsApplication1
                     excelSheet.Cells[count + 1, i] = calculatedata.ListCalculateData(i);
                 }
 
+            }
+            else
+            {
+                CreatdataExcel(GetDefaultDirectory(), dataModel);
             }
         }
     }

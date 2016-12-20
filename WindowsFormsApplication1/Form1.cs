@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             Selecteditem();
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\User\Source\Repos\Console\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\labuser11\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -27,11 +27,12 @@ namespace WindowsFormsApplication1
         CalculatedData calculateData;
         private async void buttonSaveExcel_Click(object sender, EventArgs e)
         {
+
             int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GeneratedFile";
-                datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
+        
+           datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
 
                 await Task.Run(() => writedatatoexcel = new WriteDataToExcel(datamodel));
             }
@@ -109,7 +110,9 @@ namespace WindowsFormsApplication1
              chart1.Series["Series"].Points.AddXY(( calculateData.AdversaryX),( calculateData.AdversaryY));
              textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
              WriteDataToExcel write = new WriteDataToExcel();
-             write.WriteCalcutateDataToExcel();
+             datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
+
+             write.WriteCalcutateDataToExcel(datamodel);
 
         }
     }
