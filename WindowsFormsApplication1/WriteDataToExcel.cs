@@ -31,19 +31,14 @@ namespace WindowsFormsApplication1
         {
             string pathDirectory = GetDefaultDirectory();
             CreatdataExcel(pathDirectory, datamodel);
-            MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
+
         }
-       public  string GetDefaultDirectory()
-        {
-            if (!Directory.Exists(directoryName))
-                Directory.CreateDirectory(directoryName);
-            return directoryName;
-        }
-        public void CreatdataExcel(string path, DataModel datamodel)
+
+        private void CreatdataExcel(string pathDirectory, DataModel datamodel)
         {
             excelData = new Excel.Application();
             stringBuilder = new StringBuilder();
-            stringBuilder.Append(path).Append("\\").Append(datamodel.solderPassportID).Append(datamodel.SolderName).Append(datamodel.SoldeSurername).Append(datamodel.Solderfname).Append(".csv");
+            stringBuilder.Append(pathDirectory).Append("\\").Append(datamodel.solderPassportID).Append(datamodel.SolderName).Append(datamodel.SoldeSurername).Append(datamodel.Solderfname).Append(".csv");
             List<string> listofDataName = datamodel.DatamodelValue();
 
             Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
@@ -76,7 +71,17 @@ namespace WindowsFormsApplication1
 
             excelWorkBook.Close(true, misValue, misValue);
             excelData.Quit();
+            MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
         }
+
+
+        public string GetDefaultDirectory()
+        {
+            if (!Directory.Exists(directoryName))
+                Directory.CreateDirectory(directoryName);
+            return directoryName;
+        }
+
 
         public int TestExcelCalls(string path)
         {
@@ -105,7 +110,7 @@ namespace WindowsFormsApplication1
 
             excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.White);
             excelSheet.Cells[index1, index2].Font.Size = 13;
-            excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.DarkGreen);
+            excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.DarkRed);
             excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
 
         }
@@ -120,33 +125,42 @@ namespace WindowsFormsApplication1
 
         }
 
-
-        public void WriteCalcutateDataToExcel(DataModel dataModel)
+        public void WriteDataToExcelUpdate(DataModel dataModel, CalculatedData calculateData)
         {
             stringBuilder = new StringBuilder();
             StringBuilder path = stringBuilder.Append(directoryName).Append("\\").Append(dataModel.solderPassportID).Append(dataModel.SolderName).Append(dataModel.SoldeSurername).Append(dataModel.Solderfname).Append(".csv");
-           
-            excelData = new Excel.Application();
-            int excelCallsCount = TestExcelCalls(path.ToString());
-            List<string> listofData = dataModel.DatamodelValueCalculate();
-            if (Directory.Exists(directoryName))
+            if (File.Exists(path.ToString()))
             {
-                workbook = excelData.Workbooks.Open(path.ToString());
-                Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
-                excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
-               
-                int count = TestExcelCalls(path.ToString());
-                for (int i = 0; i < listofData.Count; i++)
-                {
-                    excelSheet.Cells[count, i] = listofData[i];
-                    excelSheet.Cells[count + 1, i] = calculatedata.ListCalculateData(i);
-                }
-
+                WriteCalcutateDataToExcel(dataModel, calculateData, path.ToString());
             }
             else
             {
-                CreatdataExcel(GetDefaultDirectory(), dataModel);
+                CreatdataExcel(path.ToString(), dataModel);
+                WriteCalcutateDataToExcel(dataModel, calculateData, path.ToString());
             }
+
+        }
+
+        private void WriteCalcutateDataToExcel(DataModel dataModel, CalculatedData calculateData, string path)
+        {
+            List<string> listofData = dataModel.DatamodelValueCalculate();
+            excelData = new Excel.Application();
+            Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
+            excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
+            workbook = excelData.Workbooks.Open(path.ToString());
+            int count = TestExcelCalls(path.ToString());
+
+            for (int i = 1; i < listofData.Count; i++)
+            {
+                excelSheet.Cells[count, i] = listofData[i];
+                excelSheet.Cells[count + 1, i] = calculateData.ListCalculateData(i);
+            }
+            excelData.DisplayAlerts = false;
+            excelWorkBook.SaveAs(stringBuilder.ToString(), Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            excelWorkBook.Close(true, misValue, misValue);
+            excelData.Quit();
+            MessageBox.Show("Update");
+
         }
     }
 }
