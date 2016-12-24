@@ -109,7 +109,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(8, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Անուն";
             // 
@@ -159,9 +159,9 @@
             this.label14.ForeColor = System.Drawing.Color.DarkRed;
             this.label14.Location = new System.Drawing.Point(8, 29);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(125, 20);
+            this.label14.Size = new System.Drawing.Size(114, 20);
             this.label14.TabIndex = 18;
-            this.label14.Text = "Անձնագրի ID";
+            this.label14.Text = "Զին գրքույկի ID";
             // 
             // comboBoxBowl
             // 
@@ -216,7 +216,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkRed;
             this.label13.Location = new System.Drawing.Point(6, 393);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.Size = new System.Drawing.Size(46, 20);
             this.label13.TabIndex = 16;
             this.label13.Text = "Գունդ";
             // 
@@ -436,7 +436,7 @@
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
             this.label8.Location = new System.Drawing.Point(6, 354);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 20);
+            this.label8.Size = new System.Drawing.Size(85, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Գումարտակ";
             // 
@@ -448,7 +448,7 @@
             this.label7.ForeColor = System.Drawing.Color.DarkRed;
             this.label7.Location = new System.Drawing.Point(6, 317);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 20);
+            this.label7.Size = new System.Drawing.Size(47, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Վաշտ";
             // 
@@ -460,7 +460,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkRed;
             this.label6.Location = new System.Drawing.Point(6, 275);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.Size = new System.Drawing.Size(54, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Դասակ";
             // 
@@ -472,7 +472,7 @@
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
             this.label5.Location = new System.Drawing.Point(6, 235);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 20);
+            this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Կոչում";
             // 
@@ -484,7 +484,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
             this.label4.Location = new System.Drawing.Point(6, 192);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(48, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Տարիք";
             // 
@@ -496,7 +496,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(6, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Հայրանուն";
             // 
@@ -508,7 +508,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(6, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ազգանուն";
             // 
@@ -587,7 +587,7 @@
             this.label12.ForeColor = System.Drawing.Color.DarkRed;
             this.label12.Location = new System.Drawing.Point(6, 119);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 20);
+            this.label12.Size = new System.Drawing.Size(48, 20);
             this.label12.TabIndex = 3;
             this.label12.Text = "Տեսակ";
             // 
@@ -598,7 +598,7 @@
             this.label11.ForeColor = System.Drawing.Color.DarkRed;
             this.label11.Location = new System.Drawing.Point(6, 161);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(210, 20);
+            this.label11.Size = new System.Drawing.Size(155, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Արտադրման տարեթիվ";
             // 
@@ -609,7 +609,7 @@
             this.label10.ForeColor = System.Drawing.Color.DarkRed;
             this.label10.Location = new System.Drawing.Point(6, 77);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 20);
+            this.label10.Size = new System.Drawing.Size(44, 20);
             this.label10.TabIndex = 1;
             this.label10.Text = "Մոդել";
             // 
@@ -620,7 +620,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(6, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 20);
+            this.label9.Size = new System.Drawing.Size(47, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Անուն";
             // 
@@ -765,7 +765,7 @@
             this.label20.ForeColor = System.Drawing.Color.DarkRed;
             this.label20.Location = new System.Drawing.Point(6, 177);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(270, 20);
+            this.label20.Size = new System.Drawing.Size(199, 20);
             this.label20.TabIndex = 11;
             this.label20.Text = "Մաքսիմալ բարձրությունը (մ.)";
             // 
@@ -776,7 +776,7 @@
             this.label19.ForeColor = System.Drawing.Color.DarkRed;
             this.label19.Location = new System.Drawing.Point(6, 146);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(235, 20);
+            this.label19.Size = new System.Drawing.Size(173, 20);
             this.label19.TabIndex = 10;
             this.label19.Text = "Թռիչքի տևողությունը (ր.)";
             // 
@@ -811,7 +811,7 @@
             this.label18.ForeColor = System.Drawing.Color.DarkRed;
             this.label18.Location = new System.Drawing.Point(6, 115);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(219, 20);
+            this.label18.Size = new System.Drawing.Size(159, 20);
             this.label18.TabIndex = 8;
             this.label18.Text = "Արկի կրակման անկյուն";
             // 
@@ -842,7 +842,7 @@
             this.label17.ForeColor = System.Drawing.Color.DarkRed;
             this.label17.Location = new System.Drawing.Point(6, 84);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(265, 20);
+            this.label17.Size = new System.Drawing.Size(200, 20);
             this.label17.TabIndex = 5;
             this.label17.Text = "Հրետանու կորդինատներ X-Y";
             // 
@@ -862,7 +862,7 @@
             this.label16.ForeColor = System.Drawing.Color.DarkRed;
             this.label16.Location = new System.Drawing.Point(6, 53);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(295, 20);
+            this.label16.Size = new System.Drawing.Size(217, 20);
             this.label16.TabIndex = 3;
             this.label16.Text = "Նախնական արագություն (կմ/ժ)";
             // 
@@ -893,7 +893,7 @@
             this.label15.ForeColor = System.Drawing.Color.DarkRed;
             this.label15.Location = new System.Drawing.Point(6, 22);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(300, 20);
+            this.label15.Size = new System.Drawing.Size(227, 20);
             this.label15.TabIndex = 0;
             this.label15.Text = "Հակառակորդի կորդինատներ X-Y";
             // 
@@ -952,7 +952,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1203, 675);
+            this.ClientSize = new System.Drawing.Size(1203, 674);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chart1);

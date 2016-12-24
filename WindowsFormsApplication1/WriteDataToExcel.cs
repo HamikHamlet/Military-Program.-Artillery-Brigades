@@ -7,6 +7,7 @@ using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 
 namespace WindowsFormsApplication1
@@ -87,7 +88,7 @@ namespace WindowsFormsApplication1
         {
             int count = 0;
 
-            excelData = new Excel.Application();
+           // excelData = new Excel.Application();
             workbook = excelData.Workbooks.Open(path);
             Excel.Worksheet excelSheet = workbook.ActiveSheet;
             for (int i = 1; i < 10000; i++)
@@ -98,9 +99,9 @@ namespace WindowsFormsApplication1
                     break;
                 }
             }
-            workbook.Close();
+           // workbook.Close();
             
-            excelData.Quit();
+            //excelData.Quit();
             return count;
 
         }
@@ -145,20 +146,21 @@ namespace WindowsFormsApplication1
         {
             List<string> listofData = dataModel.DatamodelValueCalculate();
             excelData = new Excel.Application();
+            workbook = excelData.Workbooks.Open(path.ToString());
             Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
             excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
-            workbook = excelData.Workbooks.Open(path.ToString());
             int count = TestExcelCalls(path.ToString());
-
             for (int i = 1; i < listofData.Count; i++)
             {
                 excelSheet.Cells[count, i] = listofData[i];
                 excelSheet.Cells[count + 1, i] = calculateData.ListCalculateData(i);
             }
             excelData.DisplayAlerts = false;
-            excelWorkBook.SaveAs(stringBuilder.ToString(), Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
-            excelWorkBook.Close(true, misValue, misValue);
+            excelWorkBook.Close(true, path.ToString(), misValue);
             excelData.Quit();
+            
+           // excelWorkBook.SaveAs(path.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
+
             MessageBox.Show("Update");
 
         }
