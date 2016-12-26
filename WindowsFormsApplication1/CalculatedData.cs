@@ -25,6 +25,7 @@ namespace WindowsFormsApplication1
             FlightDuration = Math.Abs(2 * InitialSpeed * (Math.Sin(ProjectileAngle) / 10));
             V1 = InitialSpeed * Math.Cos(ProjectileAngle);
             V2 = InitialSpeed * Math.Sin(ProjectileAngle);
+            H = Math.Pow(InitialSpeed, 2) * Math.Pow(Math.Sin(ProjectileAngle), 2) / 2 * 10;
         }
 
         private double adversaryX;
@@ -37,6 +38,19 @@ namespace WindowsFormsApplication1
         private int maxSize;
         private double v1;
         private double v2;
+        private double h;
+
+        public double H
+        {
+            get { return h; }
+
+
+            set
+            {
+               h= value ;
+            }
+
+        }
 
         public double AdversaryX
         {

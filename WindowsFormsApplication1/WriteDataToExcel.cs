@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
             excelData.Quit();
             MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
         }
-
+        
 
         public string GetDefaultDirectory()
         {
@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
         {
             int count = 0;
 
-           // excelData = new Excel.Application();
+            excelData = new Excel.Application();
             workbook = excelData.Workbooks.Open(path);
             Excel.Worksheet excelSheet = workbook.ActiveSheet;
             for (int i = 1; i < 10000; i++)
@@ -99,9 +99,9 @@ namespace WindowsFormsApplication1
                     break;
                 }
             }
-           // workbook.Close();
+            workbook.Close();
             
-            //excelData.Quit();
+            excelData.Quit();
             return count;
 
         }
@@ -146,7 +146,7 @@ namespace WindowsFormsApplication1
         {
             List<string> listofData = dataModel.DatamodelValueCalculate();
             excelData = new Excel.Application();
-            workbook = excelData.Workbooks.Open(path.ToString());
+            workbook = excelData.Workbooks.Open(path.ToString(),false);
             Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
             excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
             int count = TestExcelCalls(path.ToString());
@@ -155,10 +155,10 @@ namespace WindowsFormsApplication1
                 excelSheet.Cells[count, i] = listofData[i];
                 excelSheet.Cells[count + 1, i] = calculateData.ListCalculateData(i);
             }
-            excelData.DisplayAlerts = false;
+            excelWorkBook.Save();
+          //  excelData.DisplayAlerts = false;
             excelWorkBook.Close(true, path.ToString(), misValue);
             excelData.Quit();
-            
            // excelWorkBook.SaveAs(path.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
 
             MessageBox.Show("Update");

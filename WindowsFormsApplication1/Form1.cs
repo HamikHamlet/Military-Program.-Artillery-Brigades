@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             Selecteditem();
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\LabUser33\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\labuser11\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -38,10 +38,12 @@ namespace WindowsFormsApplication1
             }
             else
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
+
+            buttonSaveFile.Enabled = true;
         }
         private async void buttonSaveDB_Click(object sender, EventArgs e)
         {
-
+          
             int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
@@ -50,6 +52,9 @@ namespace WindowsFormsApplication1
             }
             else
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
+
+            buttonSaveExcel.Enabled = true;
+            buttonSelectDB.Enabled = true;
         }
 
         private int ChechTextBoxText()
@@ -106,6 +111,7 @@ namespace WindowsFormsApplication1
             }
             chart1.Series["Series"].Points.AddXY((calculateData.AdversaryX), (calculateData.AdversaryY));
             textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
+            textBoxMaxSize.Text =  Math.Floor(calculateData.H).ToString() ;
             WriteDataToExcel write = new WriteDataToExcel();
             datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
             write.GetDefaultDirectory();
