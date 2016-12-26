@@ -105,9 +105,14 @@ namespace WindowsFormsApplication1
         {
             calculateData = new CalculatedData(double.Parse(textBoxazaltilleryX.Text), double.Parse(textBoxazAltilleryY.Text), double.Parse(textBoxInitialSpeed.Text), double.Parse(textBoxamAltilleryX.Text), double.Parse(textBoxamAltilleryY.Text), Convert.ToDouble(numericUpDownProjAngle.Value));
             chart1.Series[0].Points.Clear();
-            for (double t = 0; t < calculateData.FlightDuration; t += 0.1)
+            for (double t = 0; t < calculateData.FlightDuration; t +=0.01)
             {
-                chart1.Series["Series"].Points.AddXY(Math.Floor(calculateData.V1 * t), Math.Floor(calculateData.V2 * t - (10 * t * t) / 2));
+                //if ((calculateData.V2 * t - (10 * t * t) / 2) >= 0)
+              //  {
+                    chart1.Series["Series"].Points.AddXY(calculateData.V1 * t, calculateData.V2 * t - (10 * t * t) / 2);
+               // }
+              //  else
+                  //  break;
             }
             chart1.Series["Series"].Points.AddXY((calculateData.AdversaryX), (calculateData.AdversaryY));
             textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
