@@ -22,10 +22,10 @@ namespace WindowsFormsApplication1
             AltilleryX = altilleryx;
             AltilleryY = altilleryy;
             ProjectileAngle = projectilangle;
-            FlightDuration = InitialSpeed * (Math.Sin(ProjectileAngle * (Math.PI / 180.0)) / 20);
+            FlightDuration = 2*InitialSpeed * (Math.Sin(ProjectileAngle * (Math.PI / 180.0)) / 10);
             V1 = InitialSpeed * Math.Cos(ProjectileAngle * (Math.PI / 180.0));
             V2 = InitialSpeed * Math.Sin(ProjectileAngle*(Math.PI / 180.0));
-            H = Math.Pow(InitialSpeed, 2) * Math.Pow(Math.Sin(ProjectileAngle*(Math.PI / 180.0)), 2) / 2 * 10;
+            H = Math.Pow(InitialSpeed, 2) * Math.Pow(Math.Sin(ProjectileAngle*(Math.PI / 180.0)), 2) / 20;
         }
 
         private double adversaryX;

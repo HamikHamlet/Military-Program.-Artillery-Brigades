@@ -32,7 +32,6 @@ namespace WindowsFormsApplication1
         {
             string pathDirectory = GetDefaultDirectory();
             CreatdataExcel(pathDirectory, datamodel);
-
         }
 
         private void CreatdataExcel(string pathDirectory, DataModel datamodel)
@@ -41,7 +40,6 @@ namespace WindowsFormsApplication1
             stringBuilder = new StringBuilder();
             stringBuilder.Append(pathDirectory).Append("\\").Append(datamodel.solderPassportID).Append(datamodel.SolderName).Append(datamodel.SoldeSurername).Append(datamodel.Solderfname).Append(".csv");
             List<string> listofDataName = datamodel.DatamodelValue();
-
             Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
             excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
             excelWorkBook.SaveAs(stringBuilder.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
@@ -64,9 +62,7 @@ namespace WindowsFormsApplication1
                         excelSheet.Cells[excelCallsCount + 1, i + 1] = datamodel.DatamodelValueStringParametrs(i);
                     }
                     break;
-
                 }
-
             }
             excelWorkBook.SaveAs(stringBuilder.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
 
@@ -74,7 +70,6 @@ namespace WindowsFormsApplication1
             excelData.Quit();
             MessageBox.Show("Տվյալները հաջողությամբ գրանցվեցին Excel ֆայլում");
         }
-        
 
         public string GetDefaultDirectory()
         {
@@ -82,7 +77,6 @@ namespace WindowsFormsApplication1
                 Directory.CreateDirectory(directoryName);
             return directoryName;
         }
-
 
         public int TestExcelCalls(string path)
         {
@@ -100,32 +94,25 @@ namespace WindowsFormsApplication1
                 }
             }
             workbook.Close();
-            
+
             excelData.Quit();
             return count;
 
         }
         private void ExcelGeneralDataDesign(int index1, int index2)
         {
-
-
             excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.White);
             excelSheet.Cells[index1, index2].Font.Size = 13;
             excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.DarkRed);
             excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
-
         }
         private void ExcelSolderDataDesign(int index1, int index2)
         {
-
-
             excelSheet.Cells[index1, index2].Font.Color = ColorTranslator.ToOle(Color.Black);
             excelSheet.Cells[index1, index2].Font.Size = 11;
             excelSheet.Cells[index1, index2].Interior.Color = ColorTranslator.ToOle(Color.LightGray);
             excelSheet.Cells[index1, index2].Borders.Color = ColorTranslator.ToOle(Color.Black);
-
         }
-
         public void WriteDataToExcelUpdate(DataModel dataModel, CalculatedData calculateData)
         {
             stringBuilder = new StringBuilder();
@@ -139,14 +126,12 @@ namespace WindowsFormsApplication1
                 CreatdataExcel(path.ToString(), dataModel);
                 WriteCalcutateDataToExcel(dataModel, calculateData, path.ToString());
             }
-
         }
-
         private void WriteCalcutateDataToExcel(DataModel dataModel, CalculatedData calculateData, string path)
         {
             List<string> listofData = dataModel.DatamodelValueCalculate();
             excelData = new Excel.Application();
-            workbook = excelData.Workbooks.Open(path.ToString(),false);
+            workbook = excelData.Workbooks.Open(path.ToString(), false);
             Excel.Workbook excelWorkBook = excelData.Workbooks.Add(misValue);
             excelSheet = (Excel.Worksheet)excelWorkBook.Worksheets.get_Item(1);
             int count = TestExcelCalls(path.ToString());
@@ -158,11 +143,8 @@ namespace WindowsFormsApplication1
             excelData.DisplayAlerts = false;
             excelWorkBook.Save();
             excelWorkBook.Close(true, path.ToString(), misValue);
-            excelData.Quit();
-           // excelWorkBook.SaveAs(path.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
-
+            excelData.Quit();           
             MessageBox.Show("Update");
-
         }
     }
 }

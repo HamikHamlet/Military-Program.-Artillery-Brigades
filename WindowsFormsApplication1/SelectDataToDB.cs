@@ -16,7 +16,6 @@ namespace WindowsFormsApplication1
         static List<String> dataList;
         StringBuilder stringBuilder;
         WriteDataToDB data;
-
         internal string connectionString { get; set; }
         internal DataModel datamodel { get; set; }
 
@@ -32,7 +31,6 @@ namespace WindowsFormsApplication1
         }
         private void SelectToDB()
         {
-
             using (con = new SqlConnection(connectionString))
             {
                 try

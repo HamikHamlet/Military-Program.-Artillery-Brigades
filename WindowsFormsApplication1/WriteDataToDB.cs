@@ -19,7 +19,6 @@ namespace WindowsFormsApplication1
         {
 
         }
-
         public WriteDataToDB(DataModel datamodel, string conection)
         {
             connectionString = conection;
@@ -62,10 +61,8 @@ namespace WindowsFormsApplication1
             catch (Exception ex )
             {
                 MessageBox.Show(ex.Message);
-               
+              
             }
-           
-
         }
 
         private void CodingData(DataModel datamodelcoding)
@@ -76,26 +73,17 @@ namespace WindowsFormsApplication1
                 stringBuilder = new StringBuilder();
                 if (i != 4)
                 {
-
                     string encodedLine = datamodelcoding.DatamodelValueStringParametrs(i);
                     for (int j = 0; j < encodedLine.Length; j++)
                     {
-
                         char c = encodedLine[j];
                         int codechar = c + 10;
                         stringBuilder.Append((char)codechar);
 
                     }
-
                     encodingValue.Add(stringBuilder.ToString());
-
                 }
             }
-
-
         }
-
-
-
     }
 }

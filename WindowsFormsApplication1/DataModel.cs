@@ -24,10 +24,6 @@ namespace WindowsFormsApplication1
         private string altilertitle = string.Empty;
         private int altilerage;
 
-
-
-
-
         public DataModel(string solderpassportID, string soldername, string soldesurername, string solderfname, int solderage, string soldertitle, string solderclassical, string soldercompany, string solderbattalion, string solderbowl, string artilleryname, string artillerymodel, string altilertitle, int altilerage)
         {
             solderPassportID = solderpassportID;
@@ -66,7 +62,6 @@ namespace WindowsFormsApplication1
                     solderpassportID = value;
                 else
                     throw new ArgumentNullException();
-
             }
         }
         public string SolderName
@@ -195,10 +190,7 @@ namespace WindowsFormsApplication1
             list.Add("Հրետանու Մոդել  ");
             list.Add("Հրետանու Տեսակ  ");
             list.Add("Հրետանու Արտադրման տարեթիվ  ");
-
-
             return list;
-
         }
 
         public List<string> DatamodelValueCalculate()
@@ -213,7 +205,6 @@ namespace WindowsFormsApplication1
             list.Add("Թռիչքի տևողությունը (ր.)  ");
             list.Add("Մաքսիմալ բարձրությունը (մ.)  ");
             return list;
-
         }
         public int DatamodelValueAge(int index)
         {

@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             Selecteditem();
         }
-        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\labuser11\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\rduser12\Source\Repos\Military-Program.-Artillery-Brigades\WindowsFormsApplication1\bin\Debug\armydata.mdf;Integrated Security=True";
         DataModel datamodel;
         WriteDataToExcel writedatatoexcel;
         WriteDataToDB writeDataToDB;
@@ -71,8 +71,8 @@ namespace WindowsFormsApplication1
             comboBoxClassical.SelectedIndex = 0;
             comboBoxCompany.SelectedIndex = 0;
             comboBoxTitle.SelectedIndex = 0;
-            chart1.ChartAreas[0].AxisY.Maximum = 300;
-            chart1.ChartAreas[0].AxisX.Maximum = 200;
+            chart1.ChartAreas[0].AxisY.Maximum = 500;
+            chart1.ChartAreas[0].AxisX.Maximum = 400;
         }
         private async void buttonSelectDB_Click(object sender, EventArgs e)
         {
@@ -105,14 +105,14 @@ namespace WindowsFormsApplication1
         {
             calculateData = new CalculatedData(double.Parse(textBoxazaltilleryX.Text), double.Parse(textBoxazAltilleryY.Text), double.Parse(textBoxInitialSpeed.Text), double.Parse(textBoxamAltilleryX.Text), double.Parse(textBoxamAltilleryY.Text), Convert.ToDouble(numericUpDownProjAngle.Value));
             chart1.Series[0].Points.Clear();
-            for (double t = 0; t < calculateData.FlightDuration; t +=0.01)
+            for (double t = 0.1; t < calculateData.FlightDuration; t +=0.1)
             {
-                //if ((calculateData.V2 * t - (10 * t * t) / 2) >= 0)
-              //  {
-                    chart1.Series["Series"].Points.AddXY(calculateData.V1 * t, calculateData.V2 * t - (10 * t * t) / 2);
-               // }
-              //  else
-                  //  break;
+                    if ((calculateData.V2 * t - (10 * t * t) / 2) >= 0)
+                    {
+                        chart1.Series["Series"].Points.AddXY(calculateData.AltilleryX + calculateData.V1 * t, calculateData.AltilleryY + calculateData.V2 * t - (10 * t * t) / 2);
+                    }
+                    else
+                        break;                
             }
             chart1.Series["Series"].Points.AddXY((calculateData.AdversaryX), (calculateData.AdversaryY));
             textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
@@ -121,7 +121,6 @@ namespace WindowsFormsApplication1
             datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
             write.GetDefaultDirectory();
             write.WriteDataToExcelUpdate(datamodel, calculateData);
-
         }
     }
 }
