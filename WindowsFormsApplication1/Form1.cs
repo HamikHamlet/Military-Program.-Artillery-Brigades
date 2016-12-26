@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
         }
         private async void buttonSaveDB_Click(object sender, EventArgs e)
         {
-          
+
             int chechTextbox = ChechTextBoxText();
             if (chechTextbox != -1)
             {
@@ -54,7 +54,6 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Խնդրում ենք լրացնել բոլոր դաշտերը");
 
             buttonSaveExcel.Enabled = true;
-            buttonSelectDB.Enabled = true;
         }
 
         private int ChechTextBoxText()
@@ -95,6 +94,7 @@ namespace WindowsFormsApplication1
                 textBoxArtilleryModel.Text = selectdataToDB.GetData(11);
                 textBoxAltilerTitle.Text = selectdataToDB.GetData(12);
                 numericUpDownaltiler.Value = Convert.ToDecimal(selectdataToDB.GetData(13));
+                buttonSaveFile.Enabled = true;
             }
             catch (Exception)
             {
@@ -111,7 +111,7 @@ namespace WindowsFormsApplication1
             }
             chart1.Series["Series"].Points.AddXY((calculateData.AdversaryX), (calculateData.AdversaryY));
             textBoxFlightDuration.Text = calculateData.FlightDuration.ToString();
-            textBoxMaxSize.Text =  Math.Floor(calculateData.H).ToString() ;
+            textBoxMaxSize.Text = Math.Floor(calculateData.H).ToString();
             WriteDataToExcel write = new WriteDataToExcel();
             datamodel = new DataModel(textBoxPassportID.Text, textboxFirstName.Text, textBoxLastName.Text, textBoxFName.Text, Convert.ToInt16(numericUpDownAge.Value), comboBoxTitle.Text, comboBoxClassical.Text, comboBoxCompany.Text, comboBoxBattalion.Text, comboBoxBowl.Text, textBoxArtilleryName.Text, textBoxArtilleryModel.Text, textBoxAltilerTitle.Text, Convert.ToInt16(numericUpDownaltiler.Value));
             write.GetDefaultDirectory();

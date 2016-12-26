@@ -155,8 +155,8 @@ namespace WindowsFormsApplication1
                 excelSheet.Cells[count, i] = listofData[i];
                 excelSheet.Cells[count + 1, i] = calculateData.ListCalculateData(i);
             }
+            excelData.DisplayAlerts = false;
             excelWorkBook.Save();
-          //  excelData.DisplayAlerts = false;
             excelWorkBook.Close(true, path.ToString(), misValue);
             excelData.Quit();
            // excelWorkBook.SaveAs(path.ToString(), Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlShared, misValue, misValue, misValue, misValue, misValue);
